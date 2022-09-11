@@ -6,7 +6,7 @@
   <link href="https://lucas-hao.github.io/hexo_zh/atom.xml" rel="self"/>
   
   <link href="https://lucas-hao.github.io/hexo_zh/"/>
-  <updated>2022-08-17T16:01:11.582Z</updated>
+  <updated>2022-09-11T04:31:44.555Z</updated>
   <id>https://lucas-hao.github.io/hexo_zh/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://lucas-hao.github.io/hexo_zh/2022/08/10/gamegraphics/ue-jiao-ben-fang-an-unlua-ru-men/"/>
     <id>https://lucas-hao.github.io/hexo_zh/2022/08/10/gamegraphics/ue-jiao-ben-fang-an-unlua-ru-men/</id>
     <published>2022-08-10T12:44:22.000Z</published>
-    <updated>2022-08-17T16:01:11.582Z</updated>
+    <updated>2022-09-11T04:31:44.555Z</updated>
     
     
     <summary type="html">&lt;p&gt;在实际的游戏开发中，由于C++编译需要比较长的时间，蓝图使用连线的方式也会产生一些问题，比如说蓝图节点太多比较混乱，对于习惯写代码的程序员们并不是特别友好，并且蓝图以及C++都需要进行编译，在实际游戏开发过程中还会有热更新的需求，这个时候脚本语言的优势就体现出来了。Lua是游戏开发中一个非常重要的脚本语言，其中UnLua是腾讯开源的为UE提供脚本支持的框架，已经在很多项目中使用。本篇主要是记录一下UnLua的使用过程中所遇到的问题，作为一篇学习笔记。UnLua入门的教程可以参考 &lt;a href=&quot;https://github.com/Tencent/UnLua&quot;&gt;Tencent/UnLua: A feature-rich, easy-learning and highly optimized Lua scripting plugin for UE. (github.com)&lt;/a&gt;中的文档进行学习。&lt;/p&gt;
@@ -183,10 +183,10 @@
     <link href="https://lucas-hao.github.io/hexo_zh/2022/02/28/gamegraphics/tu-xing-xue-ru-men-bi-ji-2-basic-ray-tracing-games101-zuo-ye-5/"/>
     <id>https://lucas-hao.github.io/hexo_zh/2022/02/28/gamegraphics/tu-xing-xue-ru-men-bi-ji-2-basic-ray-tracing-games101-zuo-ye-5/</id>
     <published>2022-02-27T18:15:17.000Z</published>
-    <updated>2022-08-24T13:02:33.539Z</updated>
+    <updated>2022-09-11T16:56:21.137Z</updated>
     
     
-    <summary type="html">&lt;p&gt;</summary>
+    <summary type="html">&lt;p&gt;Games101作业5实现笔记以及Witted Style Ray Tracing和Moller Trumbore Algorithm笔记&lt;/p&gt;</summary>
     
     
     
