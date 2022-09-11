@@ -1,0 +1,480 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Lucas&#39;s Blog</title>
+  
+  <subtitle>Game Developer | CUHK Undergraduate</subtitle>
+  <link href="https://lucas-hao.github.io/atom.xml" rel="self"/>
+  
+  <link href="https://lucas-hao.github.io/"/>
+  <updated>2022-08-17T16:01:11.582Z</updated>
+  <id>https://lucas-hao.github.io/</id>
+  
+  <author>
+    <name>Lucas Hao</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>UE脚本方案UnLua入门</title>
+    <link href="https://lucas-hao.github.io/2022/08/10/gamegraphics/ue-jiao-ben-fang-an-unlua-ru-men/"/>
+    <id>https://lucas-hao.github.io/2022/08/10/gamegraphics/ue-jiao-ben-fang-an-unlua-ru-men/</id>
+    <published>2022-08-10T12:44:22.000Z</published>
+    <updated>2022-08-17T16:01:11.582Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;在实际的游戏开发中，由于C++编译需要比较长的时间，蓝图使用连线的方式也会产生一些问题，比如说蓝图节点太多比较混乱，对于习惯写代码的程序员们并不是特别友好，并且蓝图以及C++都需要进行编译，在实际游戏开发过程中还会有热更新的需求，这个时候脚本语言的优势就体现出来了。Lua是游戏开发中一个非常重要的脚本语言，其中UnLua是腾讯开源的为UE提供脚本支持的框架，已经在很多项目中使用。本篇主要是记录一下UnLua的使用过程中所遇到的问题，作为一篇学习笔记。UnLua入门的教程可以参考 &lt;a href=&quot;https://github.com/Tencent/UnLua&quot;&gt;Tencent/UnLua: A feature-rich, easy-learning and highly optimized Lua scripting plugin for UE. (github.com)&lt;/a&gt;中的文档进行学习。&lt;/p&gt;
+&lt;p&gt;</summary>
+    
+    
+    
+    <category term="Unreal Engine" scheme="https://lucas-hao.github.io/categories/Unreal-Engine/"/>
+    
+    
+    <category term="Unreal Engine" scheme="https://lucas-hao.github.io/tags/Unreal-Engine/"/>
+    
+    <category term="Lua" scheme="https://lucas-hao.github.io/tags/Lua/"/>
+    
+    <category term="Script Programming" scheme="https://lucas-hao.github.io/tags/Script-Programming/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>UELogSystem</title>
+    <link href="https://lucas-hao.github.io/2022/07/27/gamegraphics/uelogsystem/"/>
+    <id>https://lucas-hao.github.io/2022/07/27/gamegraphics/uelogsystem/</id>
+    <published>2022-07-27T15:28:35.000Z</published>
+    <updated>2022-08-10T12:46:33.667Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;日志系统&quot;&gt;日志系统&lt;/h2&gt;
+&lt;h3 id=&quot;设置项目自定义日志category&quot;&gt;设置项目自定义日志Category&lt;/h3&gt;
+&lt;p&gt;在ProjName.h中添加&lt;code&gt;DECLARE_LOG_CATEGORY_EXTERN(CategoryName, DefaultVerbosity, CompileTimeVerbosity);&lt;/code&gt;，在ProjName.cpp中添加&lt;code&gt;DEFINE_LOG_CATEGORY(CategoryName);&lt;/code&gt;。 实际上这两行宏展开后就是在头文件中申明了一个外部的结构体，然后在cpp文件中定义这个结构体&lt;/p&gt;
+&lt;p&gt;</summary>
+    
+    
+    
+    <category term="Unreal Engine" scheme="https://lucas-hao.github.io/categories/Unreal-Engine/"/>
+    
+    
+    <category term="Unreal Engine" scheme="https://lucas-hao.github.io/tags/Unreal-Engine/"/>
+    
+    <category term="Log System" scheme="https://lucas-hao.github.io/tags/Log-System/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Unreal Engine 学习资料收藏</title>
+    <link href="https://lucas-hao.github.io/2022/07/21/gamegraphics/unreal-engine-xue-xi-zi-liao-shou-cang/"/>
+    <id>https://lucas-hao.github.io/2022/07/21/gamegraphics/unreal-engine-xue-xi-zi-liao-shou-cang/</id>
+    <published>2022-07-21T14:54:21.000Z</published>
+    <updated>2022-08-24T13:02:25.669Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;用于记录Unreal Engine的学习路线以及资料收藏，持续更新，每学习一部分记录一下，作为学习游戏开发以及图形学的路线经历。&lt;/p&gt;
+&lt;p&gt;Unreal Engine学习路线参考&lt;a href=&quot;https://www.zhihu.com/question/459078565/answer/1886346828&quot;&gt;UE4技术方向学习路线如何安排&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;对于一个模块而言，Unreal Engine&lt;a href=&quot;https://docs.unrealengine.com/5.0/zh-CN/&quot;&gt;官方的教程以及文档&lt;/a&gt;已经包括了很多的内容，初学可以从这些教程入手，开始熟悉每一个模块。另外，官方UE4以及UE5都有一些示例，可以去看这些示例里的实现进行学习。&lt;/p&gt;
+&lt;p&gt;</summary>
+    
+    
+    
+    <category term="Unreal Engine" scheme="https://lucas-hao.github.io/categories/Unreal-Engine/"/>
+    
+    
+    <category term="Unreal Engine" scheme="https://lucas-hao.github.io/tags/Unreal-Engine/"/>
+    
+    <category term="Study Route" scheme="https://lucas-hao.github.io/tags/Study-Route/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>图像处理-颜色距离</title>
+    <link href="https://lucas-hao.github.io/2022/07/10/computervision/tu-xiang-chu-li-yan-se-ju-chi/"/>
+    <id>https://lucas-hao.github.io/2022/07/10/computervision/tu-xiang-chu-li-yan-se-ju-chi/</id>
+    <published>2022-07-10T13:13:13.000Z</published>
+    <updated>2022-09-10T03:24:17.036Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;颜色距离是衡量颜色与颜色之间相似程度的一个概念。颜色距离越近代表了两个颜色越接近，最简单的一种表示就是两个颜色在RGB颜色空间中的欧式距离，但是由于人眼感知的问题，衍生出了RGB以外的一些计算颜色距离的方式。</summary>
+    
+    
+    
+    <category term="图像处理" scheme="https://lucas-hao.github.io/categories/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
+    
+    
+    <category term="CV" scheme="https://lucas-hao.github.io/tags/CV/"/>
+    
+    <category term="python" scheme="https://lucas-hao.github.io/tags/python/"/>
+    
+    <category term="图像处理" scheme="https://lucas-hao.github.io/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>图像像素画生成方法总结（图像下采样）</title>
+    <link href="https://lucas-hao.github.io/2022/07/10/computervision/tu-pian-xia-cai-yang-duo-chong-fang-fa-zong-jie/"/>
+    <id>https://lucas-hao.github.io/2022/07/10/computervision/tu-pian-xia-cai-yang-duo-chong-fang-fa-zong-jie/</id>
+    <published>2022-07-10T03:55:49.000Z</published>
+    <updated>2022-09-09T02:39:06.217Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;图片的上采样和下采样分别对应图片的放大和缩小，在对图像进行采样的过程中会造成不同程度的模糊。图像的像素画生成采用的方法就是图片下采用的方法。本文会对图像像素化的方法进行总结。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="CV" scheme="https://lucas-hao.github.io/categories/CV/"/>
+    
+    
+    <category term="CV" scheme="https://lucas-hao.github.io/tags/CV/"/>
+    
+    <category term="python" scheme="https://lucas-hao.github.io/tags/python/"/>
+    
+    <category term="图像处理" scheme="https://lucas-hao.github.io/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>使用Rider和Emmylua进行UnLua配置</title>
+    <link href="https://lucas-hao.github.io/2022/06/27/gamegraphics/shi-yong-rider-he-emmylua-jin-xing-unlua-pei-zhi/"/>
+    <id>https://lucas-hao.github.io/2022/06/27/gamegraphics/shi-yong-rider-he-emmylua-jin-xing-unlua-pei-zhi/</id>
+    <published>2022-06-27T15:15:29.000Z</published>
+    <updated>2022-07-21T14:55:13.006Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;在Rider中配置UnLua环境就可以使用同一个IDE同时进行c++和Lua的开发，不用切换vscode和Visual Studio，并且Rider更加美观，操作逻辑和代码提示也比Visual Studio加番茄插件更加好用。所以还是非常推荐使用Rider进行UE的开发的。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Unreal Engine" scheme="https://lucas-hao.github.io/categories/Unreal-Engine/"/>
+    
+    
+    <category term="Unreal Engine" scheme="https://lucas-hao.github.io/tags/Unreal-Engine/"/>
+    
+    <category term="IDE" scheme="https://lucas-hao.github.io/tags/IDE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Pytorch计算两组三维坐标两两之间的距离</title>
+    <link href="https://lucas-hao.github.io/2022/03/01/computervision/pytorch-ji-suan-liang-zu-san-wei-zuo-biao-liang-liang-zhi-jian-de-ju-chi/"/>
+    <id>https://lucas-hao.github.io/2022/03/01/computervision/pytorch-ji-suan-liang-zu-san-wei-zuo-biao-liang-liang-zhi-jian-de-ju-chi/</id>
+    <published>2022-02-28T16:37:57.000Z</published>
+    <updated>2022-06-30T14:51:03.883Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;最近需要实现一项功能，就是给定两组三维点云坐标，对两组点的距离进行两两计算，并找出在一定阈值内的点的组合。如果使用暴力运算，时间复杂度就是O(N^2)，显然速度太慢了，所以我们尝试直接使用torch进行计算，大大提高速度。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Pytorch" scheme="https://lucas-hao.github.io/categories/Pytorch/"/>
+    
+    
+    <category term="Python" scheme="https://lucas-hao.github.io/tags/Python/"/>
+    
+    <category term="Pytorch" scheme="https://lucas-hao.github.io/tags/Pytorch/"/>
+    
+    <category term="CV" scheme="https://lucas-hao.github.io/tags/CV/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>图形学入门笔记2：Basic Ray Tracing-Games101作业5</title>
+    <link href="https://lucas-hao.github.io/2022/02/28/gamegraphics/tu-xing-xue-ru-men-bi-ji-2-basic-ray-tracing-games101-zuo-ye-5/"/>
+    <id>https://lucas-hao.github.io/2022/02/28/gamegraphics/tu-xing-xue-ru-men-bi-ji-2-basic-ray-tracing-games101-zuo-ye-5/</id>
+    <published>2022-02-27T18:15:17.000Z</published>
+    <updated>2022-08-24T13:02:33.539Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;</summary>
+    
+    
+    
+    <category term="图形学" scheme="https://lucas-hao.github.io/categories/%E5%9B%BE%E5%BD%A2%E5%AD%A6/"/>
+    
+    
+    <category term="C++" scheme="https://lucas-hao.github.io/tags/C/"/>
+    
+    <category term="图形学" scheme="https://lucas-hao.github.io/tags/%E5%9B%BE%E5%BD%A2%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>vscode编译.cpp文件出现中文乱码解决方案</title>
+    <link href="https://lucas-hao.github.io/2022/02/25/bug/g-bian-yi.cpp-wen-jian-chu-xian-zhong-wen-luan-ma-jie-jue-fang-an/"/>
+    <id>https://lucas-hao.github.io/2022/02/25/bug/g-bian-yi.cpp-wen-jian-chu-xian-zhong-wen-luan-ma-jie-jue-fang-an/</id>
+    <published>2022-02-25T09:57:35.000Z</published>
+    <updated>2022-02-25T09:58:32.150Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;vscode编译.cpp文件出现中文乱码解决方案&quot;&gt;vscode编译.cpp文件出现中文乱码解决方案&lt;/h1&gt;
+&lt;p&gt;在vscode中编译.cpp文件，可以使用vscode中的插件code runner点击按钮运行，如果熟悉如何使用g++的命令也可以直接使用命令行语句编译运行。但是如果文件中出现了中文字符，就会出现编译之后生成乱码的问题。比如这一段代码（来源于&lt;a href=&quot;https://www.runoob.com/cplusplus/cpp-data-types.html&quot;&gt;菜鸟教程&lt;/a&gt;）&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Bug" scheme="https://lucas-hao.github.io/categories/Bug/"/>
+    
+    
+    <category term="Bug" scheme="https://lucas-hao.github.io/tags/Bug/"/>
+    
+    <category term="C++" scheme="https://lucas-hao.github.io/tags/C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Three.js使用贝塞尔曲线绘制心形</title>
+    <link href="https://lucas-hao.github.io/2022/02/10/gamegraphics/three-js-shi-yong-bei-sai-er-qu-xian-hui-zhi-xin-xing/"/>
+    <id>https://lucas-hao.github.io/2022/02/10/gamegraphics/three-js-shi-yong-bei-sai-er-qu-xian-hui-zhi-xin-xing/</id>
+    <published>2022-02-10T02:38:45.000Z</published>
+    <updated>2022-07-10T16:37:20.303Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;贝塞尔曲线是图形学中非常重要的知识，是绘制曲线以及曲面的基础，在很多地方都有着非常广泛的应用，比如Photoshop里的钢笔工具，字体设计，各种过渡动画等等。本文将记录贝塞尔曲线的原理公式，以及使用Three.js中的贝塞尔曲线API进行简单的心形绘制。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="前端" scheme="https://lucas-hao.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+    <category term="图形学" scheme="https://lucas-hao.github.io/tags/%E5%9B%BE%E5%BD%A2%E5%AD%A6/"/>
+    
+    <category term="前端" scheme="https://lucas-hao.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+    <category term="Three.js" scheme="https://lucas-hao.github.io/tags/Three-js/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>BugMysql:Access Denied for user &#39;root&#39;@&#39;localhost&#39;</title>
+    <link href="https://lucas-hao.github.io/2021/11/21/bug/bugmysql-access-denied-for-user-root-localhost/"/>
+    <id>https://lucas-hao.github.io/2021/11/21/bug/bugmysql-access-denied-for-user-root-localhost/</id>
+    <published>2021-11-20T17:20:57.000Z</published>
+    <updated>2021-11-20T17:44:18.089Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;终于将困扰了很长时间的mysql的Bug解决了。朋友在macOS上的mysql每次进入的时候都会弹出&lt;code&gt;Access denied......&lt;/code&gt;的错误提示，经过长时间的上网搜索未果，今天终于有机会将其解决。&lt;/p&gt;
+&lt;p&gt;</summary>
+    
+    
+    
+    <category term="Bug" scheme="https://lucas-hao.github.io/categories/Bug/"/>
+    
+    
+    <category term="Bug" scheme="https://lucas-hao.github.io/tags/Bug/"/>
+    
+    <category term="Mysql" scheme="https://lucas-hao.github.io/tags/Mysql/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>算法：数组中的逆序对</title>
+    <link href="https://lucas-hao.github.io/2021/11/06/algorithms/suan-fa-shu-zu-zhong-de-ni-xu-dui/"/>
+    <id>https://lucas-hao.github.io/2021/11/06/algorithms/suan-fa-shu-zu-zhong-de-ni-xu-dui/</id>
+    <published>2021-11-06T05:50:11.000Z</published>
+    <updated>2022-06-12T09:18:54.878Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;题目描述&quot;&gt;题目描述&lt;/h2&gt;
+&lt;p&gt;题目来源：&lt;a href=&quot;https://leetcode-cn.com/problems/shu-zu-zhong-de-ni-xu-dui-lcof/&quot;&gt;剑指 Offer 51. 数组中的逆序对 - 力扣（LeetCode） (leetcode-cn.com)&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;数组中的逆序对是数据结构和算法中的一道经典题目。如果&lt;code&gt;A[i]&amp;gt;A[j]&lt;/code&gt;并且&lt;code&gt;i&amp;lt;j&lt;/code&gt;，那么这就算是一组逆序对。题目要求给定一个数组，求出数组中逆序对的个数&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;输入：[7,5,6,4]&lt;/p&gt;
+&lt;p&gt;输出：5&lt;/p&gt;
+&lt;/blockquote&gt;</summary>
+    
+    
+    
+    <category term="数据结构与算法" scheme="https://lucas-hao.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
+    
+    
+    <category term="算法" scheme="https://lucas-hao.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    
+    <category term="Java" scheme="https://lucas-hao.github.io/tags/Java/"/>
+    
+    <category term="LeetCode" scheme="https://lucas-hao.github.io/tags/LeetCode/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>图形学入门笔记1：图形学中的数学</title>
+    <link href="https://lucas-hao.github.io/2021/10/30/gamegraphics/tu-xing-xue-ru-men-bi-ji-1-tu-xing-xue-zhong-de-shu-xue/"/>
+    <id>https://lucas-hao.github.io/2021/10/30/gamegraphics/tu-xing-xue-ru-men-bi-ji-1-tu-xing-xue-zhong-de-shu-xue/</id>
+    <published>2021-10-30T15:39:17.000Z</published>
+    <updated>2022-09-08T15:38:45.020Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;数学在图形学中是非常重要的基础，本篇简要记录一下图形学之中的一些数学基础和技巧&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="图形学" scheme="https://lucas-hao.github.io/categories/%E5%9B%BE%E5%BD%A2%E5%AD%A6/"/>
+    
+    
+    <category term="Math" scheme="https://lucas-hao.github.io/tags/Math/"/>
+    
+    <category term="图形学" scheme="https://lucas-hao.github.io/tags/%E5%9B%BE%E5%BD%A2%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>算法：数组中第k大的数</title>
+    <link href="https://lucas-hao.github.io/2021/10/21/algorithms/suan-fa-shu-zu-zhong-di-k-da-de-shu/"/>
+    <id>https://lucas-hao.github.io/2021/10/21/algorithms/suan-fa-shu-zu-zhong-di-k-da-de-shu/</id>
+    <published>2021-10-20T16:30:10.000Z</published>
+    <updated>2021-11-06T06:04:42.000Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;题目描述&quot;&gt;题目描述&lt;/h2&gt;
+&lt;p&gt;数组中第k大的数是一道十分经典的题目，题目表述可以如下&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;You are given a set S of n integers in an array and also an integer k ∈ [1, n]. Design an algorithm to find the k-th largest integer of S.&lt;/p&gt;
+&lt;p&gt;给定 一个数组，返回数组中第k大的元素&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/kth-largest-element-in-an-array/&quot;&gt;215. 数组中的第K个最大元素 - 力扣（LeetCode） (leetcode-cn.com)&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://leetcode-cn.com/problems/xx4gT2/&quot;&gt;剑指 Offer II 076. 数组中的第 k 大的数字 - 力扣（LeetCode） (leetcode-cn.com)&lt;/a&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="数据结构与算法" scheme="https://lucas-hao.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
+    
+    
+    <category term="算法" scheme="https://lucas-hao.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    
+    <category term="Java" scheme="https://lucas-hao.github.io/tags/Java/"/>
+    
+    <category term="LeetCode" scheme="https://lucas-hao.github.io/tags/LeetCode/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>面试-Jane Street 电面</title>
+    <link href="https://lucas-hao.github.io/2021/09/27/mian-shi-jane-street-dian-mian/"/>
+    <id>https://lucas-hao.github.io/2021/09/27/mian-shi-jane-street-dian-mian/</id>
+    <published>2021-09-27T06:31:42.000Z</published>
+    <updated>2022-07-27T15:28:58.258Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;今天刚面了Jane Street (HK) 的电面，再次感慨自己也太菜了，不过也权当积累经验了orz&lt;/p&gt;
+&lt;p&gt;</summary>
+    
+    
+    
+    <category term="面试" scheme="https://lucas-hao.github.io/categories/%E9%9D%A2%E8%AF%95/"/>
+    
+    
+    <category term="面试" scheme="https://lucas-hao.github.io/tags/%E9%9D%A2%E8%AF%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>算法题目类型总结</title>
+    <link href="https://lucas-hao.github.io/2021/09/24/algorithms/suan-fa-ti-mu-lei-xing-zong-jie/"/>
+    <id>https://lucas-hao.github.io/2021/09/24/algorithms/suan-fa-ti-mu-lei-xing-zong-jie/</id>
+    <published>2021-09-24T13:02:55.000Z</published>
+    <updated>2022-03-10T16:36:32.361Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;算法题目类型总结，题目为LeetCode或者HackerRank上的题目。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="数据结构与算法" scheme="https://lucas-hao.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
+    
+    
+    <category term="算法" scheme="https://lucas-hao.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>1109. 航班预订统计</title>
+    <link href="https://lucas-hao.github.io/2021/09/24/leetcode/1109-hang-ban-yu-ding-tong-ji/"/>
+    <id>https://lucas-hao.github.io/2021/09/24/leetcode/1109-hang-ban-yu-ding-tong-ji/</id>
+    <published>2021-09-24T13:02:30.000Z</published>
+    <updated>2021-09-24T13:11:00.000Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;题目描述&quot;&gt;题目描述&lt;/h2&gt;
+&lt;p&gt;这里有 n 个航班，它们分别从 1 到 n 进行编号。&lt;/p&gt;
+&lt;p&gt;有一份航班预订表 bookings ，表中第 i 条预订记录 bookings[i] = [firsti, lasti, seatsi] 意味着在从 firsti 到 lasti （包含 firsti 和 lasti ）的 每个航班 上预订了 seatsi 个座位。&lt;/p&gt;
+&lt;p&gt;请你返回一个长度为 n 的数组 answer，里面的元素是每个航班预定的座位总数。&lt;/p&gt;
+&lt;p&gt;</summary>
+    
+    
+    
+    <category term="LeetCode刷题笔记" scheme="https://lucas-hao.github.io/categories/LeetCode%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="Java" scheme="https://lucas-hao.github.io/tags/Java/"/>
+    
+    <category term="LeetCode" scheme="https://lucas-hao.github.io/tags/LeetCode/"/>
+    
+    <category term="差分" scheme="https://lucas-hao.github.io/tags/%E5%B7%AE%E5%88%86/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Java异常java.util.ConcurrentModificationException详解（转载）</title>
+    <link href="https://lucas-hao.github.io/2021/08/02/javanote/java-yi-chang-java-util-concurrentmodificationexception-xiang-jie/"/>
+    <id>https://lucas-hao.github.io/2021/08/02/javanote/java-yi-chang-java-util-concurrentmodificationexception-xiang-jie/</id>
+    <published>2021-08-02T01:16:15.000Z</published>
+    <updated>2021-08-02T01:43:30.000Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;最近在Android开发的过程中，使用WorkerManager的时候产生了报错java.util.ConcurrentModificationException，于是就到网上进行查询，感觉这篇文章讲述的比较详尽，记录学习一下。&lt;/p&gt;
+&lt;p&gt;原文原载于&lt;a href=&quot;https://www.cnblogs.com/snowater/p/8024776.html&quot;&gt;java.util.ConcurrentModificationException 异常问题详解&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;</summary>
+    
+    
+    
+    <category term="Java学习笔记" scheme="https://lucas-hao.github.io/categories/Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="Java" scheme="https://lucas-hao.github.io/tags/Java/"/>
+    
+    <category term="Bug" scheme="https://lucas-hao.github.io/tags/Bug/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Android中常用的一些包(记录一下方便以后使用)</title>
+    <link href="https://lucas-hao.github.io/2021/07/30/android/android-zhong-chang-yong-de-yi-xie-bao-ji-lu-yi-xia-fang-bian-yi-hou-shi-yong/"/>
+    <id>https://lucas-hao.github.io/2021/07/30/android/android-zhong-chang-yong-de-yi-xie-bao-ji-lu-yi-xia-fang-bian-yi-hou-shi-yong/</id>
+    <published>2021-07-30T08:44:02.000Z</published>
+    <updated>2021-08-09T07:06:26.000Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;Android中有一些常用的一些包需要我们手动添加到dependency中去，记录一下方便以后使用&lt;/p&gt;
+&lt;p&gt;</summary>
+    
+    
+    
+    <category term="Android" scheme="https://lucas-hao.github.io/categories/Android/"/>
+    
+    
+    <category term="Android" scheme="https://lucas-hao.github.io/tags/Android/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>卡特兰数</title>
+    <link href="https://lucas-hao.github.io/2021/07/27/algorithms/qia-te-lan-shu/"/>
+    <id>https://lucas-hao.github.io/2021/07/27/algorithms/qia-te-lan-shu/</id>
+    <published>2021-07-26T16:01:45.000Z</published>
+    <updated>2021-12-04T06:45:29.279Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;考虑以下问题：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;现在我们有&lt;span class=&quot;math inline&quot;&gt;\(n+1\)&lt;/span&gt;个数，&lt;span class=&quot;math inline&quot;&gt;\(x_0,x_1,x_2,\cdots,x_n\)&lt;/span&gt;，考虑它们的乘积&lt;span class=&quot;math inline&quot;&gt;\(x_1\cdot x_2\cdots x_n\)&lt;/span&gt;，现在我们可以在其中插入括号来改变计算顺序。那么一共有多少种排列的顺序呢？比如说，现在有三个数&lt;span class=&quot;math inline&quot;&gt;\(x_0, x_1, x_2\)&lt;/span&gt;，它们的计算顺序有&lt;span class=&quot;math inline&quot;&gt;\((x_0x_1)x_2\)&lt;/span&gt;以及&lt;span class=&quot;math inline&quot;&gt;\(x_0(x_1x_2)\)&lt;/span&gt;两种排列方式&lt;/p&gt;
+&lt;/blockquote&gt;</summary>
+    
+    
+    
+    <category term="Math" scheme="https://lucas-hao.github.io/categories/Math/"/>
+    
+    
+    <category term="Math" scheme="https://lucas-hao.github.io/tags/Math/"/>
+    
+  </entry>
+  
+</feed>

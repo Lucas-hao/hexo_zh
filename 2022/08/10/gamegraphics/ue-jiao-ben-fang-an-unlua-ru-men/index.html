@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 5.4.2">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/%E7%9A%AE%E5%8D%A1%E4%B8%98%E5%A4%B4%E5%83%8F.jpg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/%E7%9A%AE%E5%8D%A1%E4%B8%98%E5%A4%B4%E5%83%8F.jpg">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/%E7%9A%AE%E5%8D%A1%E4%B8%98%E5%A4%B4%E5%83%8F.jpg">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css" integrity="sha256-AbA177XfpSnFEvgpYu1jMygiLabzPCJCRIBtR5jGc0k=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"lucas-hao.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.13.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="在实际的游戏开发中，由于C++编译需要比较长的时间，蓝图使用连线的方式也会产生一些问题，比如说蓝图节点太多比较混乱，对于习惯写代码的程序员们并不是特别友好，并且蓝图以及C++都需要进行编译，在实际游戏开发过程中还会有热更新的需求，这个时候脚本语言的优势就体现出来了。Lua是游戏开发中一个非常重要的脚本语言，其中UnLua是腾讯开源的为UE提供脚本支持的框架，已经在很多项目中使用。本篇主要是记录一下">
+<meta property="og:type" content="article">
+<meta property="og:title" content="UE脚本方案UnLua入门">
+<meta property="og:url" content="https://lucas-hao.github.io/2022/08/10/gamegraphics/ue-jiao-ben-fang-an-unlua-ru-men/index.html">
+<meta property="og:site_name" content="Lucas&#39;s Blog">
+<meta property="og:description" content="在实际的游戏开发中，由于C++编译需要比较长的时间，蓝图使用连线的方式也会产生一些问题，比如说蓝图节点太多比较混乱，对于习惯写代码的程序员们并不是特别友好，并且蓝图以及C++都需要进行编译，在实际游戏开发过程中还会有热更新的需求，这个时候脚本语言的优势就体现出来了。Lua是游戏开发中一个非常重要的脚本语言，其中UnLua是腾讯开源的为UE提供脚本支持的框架，已经在很多项目中使用。本篇主要是记录一下">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-08-10T12:44:22.000Z">
+<meta property="article:modified_time" content="2022-08-17T16:01:11.582Z">
+<meta property="article:author" content="Lucas Hao">
+<meta property="article:tag" content="Unreal Engine">
+<meta property="article:tag" content="Lua">
+<meta property="article:tag" content="Script Programming">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://lucas-hao.github.io/2022/08/10/gamegraphics/ue-jiao-ben-fang-an-unlua-ru-men/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://lucas-hao.github.io/2022/08/10/gamegraphics/ue-jiao-ben-fang-an-unlua-ru-men/","path":"2022/08/10/gamegraphics/ue-jiao-ben-fang-an-unlua-ru-men/","title":"UE脚本方案UnLua入门"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>UE脚本方案UnLua入门 | Lucas's Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><link rel="alternate" href="/atom.xml" title="Lucas's Blog" type="application/atom+xml">
+<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Lucas's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Game Developer | CUHK Undergraduate</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">43</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">16</span></a></li><li class="menu-item menu-item-portfolio"><a href="/portfolio/" rel="section"><i class="fa fa-archive fa-fw"></i>作品集</a></li><li class="menu-item menu-item-engligh"><a href="https://lucas-hao.github.io/en/" rel="section"><i class="language fa-fw"></i>Engligh</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#unlua%E5%8A%9F%E8%83%BD%E7%89%B9%E6%80%A7%E6%80%BB%E7%BB%93"><span class="nav-number">1.</span> <span class="nav-text">UnLua功能特性总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#lua%E4%B8%AD%E5%8A%A8%E6%80%81%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1%E5%92%8C%E5%8A%A0%E8%BD%BD%E8%B5%84%E6%BA%90"><span class="nav-number">2.</span> <span class="nav-text">Lua中动态创建对象和加载资源</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BAumg-object"><span class="nav-number">2.1.</span> <span class="nav-text">创建UMG Object</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#load%E8%B5%84%E4%BA%A7"><span class="nav-number">2.2.</span> <span class="nav-text">Load资产</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#datatable%E5%9C%A8unlua%E4%B8%AD%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="nav-number">2.3.</span> <span class="nav-text">DataTable在UnLua中的使用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#unlua%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9D%91"><span class="nav-number">3.</span> <span class="nav-text">UnLua遇到的一些坑</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="nav-number">4.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Lucas Hao"
+      src="/images/%E7%9A%AE%E5%8D%A1%E4%B8%98%E5%A4%B4%E5%83%8F.jpg">
+  <p class="site-author-name" itemprop="name">Lucas Hao</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">61</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">43</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/lucas-hao" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;lucas-hao" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/lucashaozh@gmail.com" title="E-Mail → lucashaozh@gmail.com"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://blog.csdn.net/weixin_45951701" title="CSDN → https:&#x2F;&#x2F;blog.csdn.net&#x2F;weixin_45951701" rel="noopener" target="_blank"><i class="fab fa-contao fa-fw"></i>CSDN</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="返回顶部">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://lucas-hao.github.io/2022/08/10/gamegraphics/ue-jiao-ben-fang-an-unlua-ru-men/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/%E7%9A%AE%E5%8D%A1%E4%B8%98%E5%A4%B4%E5%83%8F.jpg">
+      <meta itemprop="name" content="Lucas Hao">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lucas's Blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="UE脚本方案UnLua入门 | Lucas's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          UE脚本方案UnLua入门
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-08-10 20:44:22" itemprop="dateCreated datePublished" datetime="2022-08-10T20:44:22+08:00">2022-08-10</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-08-18 00:01:11" itemprop="dateModified" datetime="2022-08-18T00:01:11+08:00">2022-08-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Unreal-Engine/" itemprop="url" rel="index"><span itemprop="name">Unreal Engine</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="firestore-visitors-count"></span>
+    </span>
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>在实际的游戏开发中，由于C++编译需要比较长的时间，蓝图使用连线的方式也会产生一些问题，比如说蓝图节点太多比较混乱，对于习惯写代码的程序员们并不是特别友好，并且蓝图以及C++都需要进行编译，在实际游戏开发过程中还会有热更新的需求，这个时候脚本语言的优势就体现出来了。Lua是游戏开发中一个非常重要的脚本语言，其中UnLua是腾讯开源的为UE提供脚本支持的框架，已经在很多项目中使用。本篇主要是记录一下UnLua的使用过程中所遇到的问题，作为一篇学习笔记。UnLua入门的教程可以参考 <a target="_blank" rel="noopener" href="https://github.com/Tencent/UnLua">Tencent/UnLua: A feature-rich, easy-learning and highly optimized Lua scripting plugin for UE. (github.com)</a>中的文档进行学习。</p>
+<p><span id="more"></span></p>
+<p>[TOC]</p>
+<h2 id="unlua功能特性总结">UnLua功能特性总结</h2>
+<p>从功能上来看，基本上只要是蓝图中能够做到的事情，UnLua基本上都可以替代完成。包括以下几类功能</p>
+<ol type="1">
+<li>动画系统 (AnimNotify)</li>
+<li>UMG UI系统 (UI的逻辑控制)</li>
+<li>游戏的基本组成部分PlayerCharacter, PlayerController, GameMode</li>
+<li>......</li>
+</ol>
+<p>UnLua对于UE中的一些特殊类和对象使用lua的接口重新实现了一遍，比如说UE中的容器，<code>UWorld</code>，<code>Delegate</code>，<code>UClass</code>, <code>UObject</code>等对象，具体路径实现在<code>/Plugins/UnLua/Private/BaseLib</code>下。</p>
+<p>从特性上看，UnLua主要实现了以下特性。</p>
+<ol type="1">
+<li>绑定Delegate/Event (目前只支持Dynamic Delegate)</li>
+<li>继承关系</li>
+<li>Lua动态加载UObject/UClass</li>
+<li>Lua调用蓝图/c++</li>
+<li>UE原生容器类</li>
+<li>IInterface和Lua</li>
+<li>垃圾回收机制</li>
+<li>自定义Lua加载器</li>
+</ol>
+<h2 id="lua中动态创建对象和加载资源">Lua中动态创建对象和加载资源</h2>
+<h3 id="创建umg-object">创建UMG Object</h3>
+<ol type="1">
+<li><p>lua 中调用 NewObject 以及动态绑定：</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">local</span> ProxyObj = NewObject(ObjClass, <span class="built_in">self</span>, <span class="literal">nil</span>, <span class="string">&quot;Objects.ProxyObject&quot;</span>)</span><br></pre></td></tr></table></figure>
+<p>UnLua 中的 NewObject 可以接收四个参数，依次是：创建的 UClass、Outer、Name，以及动态绑定的 Lua 脚本路径。动态绑定即不在Editor中进行UnLua Bind，而是在创建对象的时候指定绑定的Lua脚本。动态绑定无法覆写蓝图中的事件，如<code>ReceiveBeginplay</code>，只是相当于对于蓝图的扩充，可以实现一些辅助性的功能。</p></li>
+<li><p>创建 UMG 首先需要获取到 UI 的 UClass，然后使用 UWidgetBlueprintLibrary::Create 来创建，与 C++ 一致：</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">local</span> UMG_C = UE4.UClass.Load(<span class="string">&quot;/Game/Test/BPUI_TestMain.BPUI_TestMain_C&quot;</span>)</span><br><span class="line"><span class="keyword">local</span> UMG_TestMain_Ins = UE4.UWidgetBlueprintLibrary.Create(<span class="built_in">self</span>,UMG_C)</span><br><span class="line">UMG_TestMain_Ins:AddToViewport()</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="load资产">Load资产</h3>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">local</span> SoundObj = UE.UObject.Load(FootSoundAsset) <span class="comment">-- 加载对象</span></span><br><span class="line"><span class="keyword">local</span> ObjectClass = UE.UClass.Load(ClassPath)	 <span class="comment">-- 加载类</span></span><br></pre></td></tr></table></figure>
+<h3 id="datatable在unlua中的使用">DataTable在UnLua中的使用</h3>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">UE.UDataTableFunctionLibrary.GetRowDataStructure(<span class="built_in">self</span>.VoiceeDataTable, row_name)</span><br></pre></td></tr></table></figure>
+<h2 id="unlua遇到的一些坑">UnLua遇到的一些坑</h2>
+<ol type="1">
+<li><p>UnLua比较大的局限性就在于它所调用的函数都必须是UFUNCTION，并且是在蓝图中可以访问的UFUNCTION，所以很多C++中经常调用的函数并非是UFUNCTION，在Lua中就没有办法调用到，比如说CreateWidget(), CreateDefaultSubobject()，等等，包括含有模板类的函数在Lua中也无法调用，所以我们在生成对象的时候一般使用NewObject创建对象。</p></li>
+<li><p>一个可能导致UnLua绑定失效的错误：如果Lua中的函数定义冒号前的module名称有写错的，就会导致UnLua失效。比如在BP_Test_C.lua中如果存在于个<code>function BP_FalseTest_C:FuncName()</code>的函数，<code>BP_Test_C.lua</code>就会失效。</p></li>
+<li><p>在使用UnLua中的<code>self.Overriden</code>的时候，一定要注意需要把参数写正确，如果不正确就很容易会crash，很浪费时间orz，其实也不是很复杂，但是一旦写错crash也不会有什么关键提示，比较耽误时间。正确写法如下</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 注意两个都是点(.)不是冒号(:)</span></span><br><span class="line"><span class="comment">-- 第一个参数是self，一定要写，后面跟着原函数的其他的参数</span></span><br><span class="line"><span class="comment">-- 参数不正确就会导致参数检查的时候crash，所以参数一定要写正确</span></span><br><span class="line"><span class="built_in">self</span>.Overridden.AddBackpackItem(<span class="built_in">self</span>, item_name)</span><br></pre></td></tr></table></figure></li>
+<li><p>由于Lua中的Array默认的下标都是从1开始计数，所以UnLua的TArray也跟随了Lua这一习惯，下标从1开始，可能会导致写代码的时候有些混乱。</p></li>
+</ol>
+<h2 id="参考资料">参考资料</h2>
+<ol type="1">
+<li><a target="_blank" rel="noopener" href="https://github.com/Tencent/UnLua">Tencent/UnLua: A feature-rich, easy-learning and highly optimized Lua scripting plugin for UE. (github.com)</a></li>
+<li><a target="_blank" rel="noopener" href="https://imzlp.com/posts/36659/">UE 热更新：基于 UnLua 的 Lua 编程指南 | 循迹研究室 (imzlp.com)</a></li>
+</ol>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Unreal-Engine/" rel="tag"># Unreal Engine</a>
+              <a href="/tags/Lua/" rel="tag"># Lua</a>
+              <a href="/tags/Script-Programming/" rel="tag"># Script Programming</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/07/27/gamegraphics/uelogsystem/" rel="prev" title="UELogSystem">
+                  <i class="fa fa-chevron-left"></i> UELogSystem
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2020 – 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Lucas Hao</span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@next-theme/pjax@0.5.0/pjax.min.js" integrity="sha256-3NkoLDrmHLTYj7csHIZSr0MHAFTXth7Ua/DDt4MRUAg=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/firebase@9.9.4/firebase-app-compat.js" integrity="sha256-oT4Iq8DavJt2Y4f9xqTkuZUQcNPf2J7a1TxHJCxIMWk=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/firebase@9.9.4/firebase-firestore-compat.js" integrity="sha256-1GJlM827o4GIssN6/O0n4kkbGg/YZ0/wAqIJ+AQLf1A=" crossorigin="anonymous"></script>
+  <script class="next-config" data-name="firestore" type="application/json">{"enable":true,"collection":"articles","apiKey":"AIzaSyBjxo7Y6mhpjNFQsK69uPfuX16KqBKYzMI","projectId":"hexo-e0deb"}</script>
+  <script src="/js/third-party/statistics/firestore.js"></script>
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","cjk_width":0.9,"normal_width":0.6,"append_css":true,"js":{"url":"https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<script src="https://unpkg.com/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: 'unset',
+  left: '32px',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌓',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
+</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.8.0/dist/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"Lucas-hao","repo":"gitalk-for-lucas-hao","client_id":"210697ff3f45adf6cabe","client_secret":"bbcd7f75b61423cebec0dff8568a8f2980d7b431","admin_user":"Lucas-hao","distraction_free_mode":false,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":null,"js":{"url":"https://cdn.jsdelivr.net/npm/gitalk@1.8.0/dist/gitalk.min.js","integrity":"sha256-MVK9MGD/XJaGyIghSVrONSnoXoGh3IFxLw0zfvzpxR4="},"path_md5":"0077bdb09139302e1b82f9ea7bafdeef"}</script>
+<script src="/js/third-party/comments/gitalk.js"></script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"mobile":{"show":false},"log":false,"tagMode":false});</script></body>
+</html>
