@@ -23,7 +23,7 @@
     <meta name="description" content="最近在做一个项目，需要讲Android App和服务器上的PostgreSQL进行连接，但是Android Studio不能够直接通过JDBC进行连接，所以选择通过Nginx作为中间服务器对PostgreSQL进行操作，这篇文章紧接Nginx以及ngx_postgres安装以及配置。 更新：后来发现使用nginx的效果并不好，更好的方法可能是使用PostgREST+Nginx反向代理对数据库进行">
 <meta property="og:type" content="article">
 <meta property="og:title" content="使用Java通过Nginx反向代理服务器操作PostgreSQL数据库">
-<meta property="og:url" content="https://lucas-hao.github.io/2021/07/08/javanote/shi-yong-java-tong-guo-nginx-fan-xiang-dai-li-fu-wu-qi-cao-zuo-postgresql-shu-ju-ku/index.html">
+<meta property="og:url" content="https://lucas-hao.github.io/hexo_zh/2021/07/08/javanote/shi-yong-java-tong-guo-nginx-fan-xiang-dai-li-fu-wu-qi-cao-zuo-postgresql-shu-ju-ku/index.html">
 <meta property="og:site_name" content="Lucas的博客">
 <meta property="og:description" content="最近在做一个项目，需要讲Android App和服务器上的PostgreSQL进行连接，但是Android Studio不能够直接通过JDBC进行连接，所以选择通过Nginx作为中间服务器对PostgreSQL进行操作，这篇文章紧接Nginx以及ngx_postgres安装以及配置。 更新：后来发现使用nginx的效果并不好，更好的方法可能是使用PostgREST+Nginx反向代理对数据库进行">
 <meta property="og:locale" content="zh_CN">
@@ -38,11 +38,11 @@
 <meta name="twitter:image" content="https://i.loli.net/2021/07/16/DJsO18TfyU29MSz.png">
 
 
-<link rel="canonical" href="https://lucas-hao.github.io/2021/07/08/javanote/shi-yong-java-tong-guo-nginx-fan-xiang-dai-li-fu-wu-qi-cao-zuo-postgresql-shu-ju-ku/">
+<link rel="canonical" href="https://lucas-hao.github.io/hexo_zh/2021/07/08/javanote/shi-yong-java-tong-guo-nginx-fan-xiang-dai-li-fu-wu-qi-cao-zuo-postgresql-shu-ju-ku/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://lucas-hao.github.io/2021/07/08/javanote/shi-yong-java-tong-guo-nginx-fan-xiang-dai-li-fu-wu-qi-cao-zuo-postgresql-shu-ju-ku/","path":"2021/07/08/javanote/shi-yong-java-tong-guo-nginx-fan-xiang-dai-li-fu-wu-qi-cao-zuo-postgresql-shu-ju-ku/","title":"使用Java通过Nginx反向代理服务器操作PostgreSQL数据库"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://lucas-hao.github.io/hexo_zh/2021/07/08/javanote/shi-yong-java-tong-guo-nginx-fan-xiang-dai-li-fu-wu-qi-cao-zuo-postgresql-shu-ju-ku/","path":"2021/07/08/javanote/shi-yong-java-tong-guo-nginx-fan-xiang-dai-li-fu-wu-qi-cao-zuo-postgresql-shu-ju-ku/","title":"使用Java通过Nginx反向代理服务器操作PostgreSQL数据库"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
 <title>使用Java通过Nginx反向代理服务器操作PostgreSQL数据库 | Lucas的博客</title>
@@ -231,7 +231,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://lucas-hao.github.io/2021/07/08/javanote/shi-yong-java-tong-guo-nginx-fan-xiang-dai-li-fu-wu-qi-cao-zuo-postgresql-shu-ju-ku/">
+    <link itemprop="mainEntityOfPage" href="https://lucas-hao.github.io/hexo_zh/2021/07/08/javanote/shi-yong-java-tong-guo-nginx-fan-xiang-dai-li-fu-wu-qi-cao-zuo-postgresql-shu-ju-ku/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/hexo_zh/images/%E7%9A%AE%E5%8D%A1%E4%B8%98%E5%A4%B4%E5%83%8F.jpg">
