@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Lucas&#39;s Blog</title>
+  <title>Lucas的博客</title>
   
-  <subtitle>Game Developer | CUHK Undergraduate</subtitle>
+  <subtitle>游戏开发 | 香港中文大学学生</subtitle>
   <link href="https://lucas-hao.github.io/atom.xml" rel="self"/>
   
   <link href="https://lucas-hao.github.io/"/>
