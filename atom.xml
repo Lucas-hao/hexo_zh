@@ -6,7 +6,7 @@
   <link href="https://lucas-hao.github.io/hexo_zh/atom.xml" rel="self"/>
   
   <link href="https://lucas-hao.github.io/hexo_zh/"/>
-  <updated>2022-09-11T04:31:44.555Z</updated>
+  <updated>2022-09-25T15:32:25.151Z</updated>
   <id>https://lucas-hao.github.io/hexo_zh/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>PyTorch Inplace Operation Notes</title>
+    <link href="https://lucas-hao.github.io/hexo_zh/2022/09/25/computervision/pytorch-inplace-operation-notes/"/>
+    <id>https://lucas-hao.github.io/hexo_zh/2022/09/25/computervision/pytorch-inplace-operation-notes/</id>
+    <published>2022-09-25T15:05:57.000Z</published>
+    <updated>2022-09-25T15:32:25.151Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;最近在跑实验的时候遇到了这样一个Bug花了很久才解决，记录一下学习一波以免以后再遇到。&lt;/p&gt;
+&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;RuntimeError: one of the variables needed for gradient computation has been modified by an inplace operation: [torch.cuda.FloatTensor [3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;, 64, 7, 7]] is at version 2; expected version 1 instead. Hint: enable anomaly detection to find the operation that failed to compute it&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;s gradient, with torch.autograd.set_detect_anomaly(True).&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;</summary>
+    
+    
+    
+    <category term="PyTorch" scheme="https://lucas-hao.github.io/hexo_zh/categories/PyTorch/"/>
+    
+    
+    <category term="PyTorch" scheme="https://lucas-hao.github.io/hexo_zh/tags/PyTorch/"/>
+    
+    <category term="CV" scheme="https://lucas-hao.github.io/hexo_zh/tags/CV/"/>
+    
+    <category term="Python" scheme="https://lucas-hao.github.io/hexo_zh/tags/Python/"/>
+    
+  </entry>
   
   <entry>
     <title>UE脚本方案UnLua入门</title>
@@ -105,9 +130,9 @@
     
     <category term="CV" scheme="https://lucas-hao.github.io/hexo_zh/tags/CV/"/>
     
-    <category term="python" scheme="https://lucas-hao.github.io/hexo_zh/tags/python/"/>
-    
     <category term="图像处理" scheme="https://lucas-hao.github.io/hexo_zh/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
+    
+    <category term="python" scheme="https://lucas-hao.github.io/hexo_zh/tags/python/"/>
     
   </entry>
   
@@ -128,9 +153,9 @@
     
     <category term="CV" scheme="https://lucas-hao.github.io/hexo_zh/tags/CV/"/>
     
-    <category term="python" scheme="https://lucas-hao.github.io/hexo_zh/tags/python/"/>
-    
     <category term="图像处理" scheme="https://lucas-hao.github.io/hexo_zh/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
+    
+    <category term="python" scheme="https://lucas-hao.github.io/hexo_zh/tags/python/"/>
     
   </entry>
   
@@ -170,11 +195,11 @@
     <category term="Pytorch" scheme="https://lucas-hao.github.io/hexo_zh/categories/Pytorch/"/>
     
     
+    <category term="CV" scheme="https://lucas-hao.github.io/hexo_zh/tags/CV/"/>
+    
     <category term="Python" scheme="https://lucas-hao.github.io/hexo_zh/tags/Python/"/>
     
     <category term="Pytorch" scheme="https://lucas-hao.github.io/hexo_zh/tags/Pytorch/"/>
-    
-    <category term="CV" scheme="https://lucas-hao.github.io/hexo_zh/tags/CV/"/>
     
   </entry>
   
@@ -452,28 +477,6 @@
     
     
     <category term="Android" scheme="https://lucas-hao.github.io/hexo_zh/tags/Android/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>卡特兰数</title>
-    <link href="https://lucas-hao.github.io/hexo_zh/2021/07/27/algorithms/qia-te-lan-shu/"/>
-    <id>https://lucas-hao.github.io/hexo_zh/2021/07/27/algorithms/qia-te-lan-shu/</id>
-    <published>2021-07-26T16:01:45.000Z</published>
-    <updated>2021-12-04T06:45:29.279Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;考虑以下问题：&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;现在我们有&lt;span class=&quot;math inline&quot;&gt;\(n+1\)&lt;/span&gt;个数，&lt;span class=&quot;math inline&quot;&gt;\(x_0,x_1,x_2,\cdots,x_n\)&lt;/span&gt;，考虑它们的乘积&lt;span class=&quot;math inline&quot;&gt;\(x_1\cdot x_2\cdots x_n\)&lt;/span&gt;，现在我们可以在其中插入括号来改变计算顺序。那么一共有多少种排列的顺序呢？比如说，现在有三个数&lt;span class=&quot;math inline&quot;&gt;\(x_0, x_1, x_2\)&lt;/span&gt;，它们的计算顺序有&lt;span class=&quot;math inline&quot;&gt;\((x_0x_1)x_2\)&lt;/span&gt;以及&lt;span class=&quot;math inline&quot;&gt;\(x_0(x_1x_2)\)&lt;/span&gt;两种排列方式&lt;/p&gt;
-&lt;/blockquote&gt;</summary>
-    
-    
-    
-    <category term="Math" scheme="https://lucas-hao.github.io/hexo_zh/categories/Math/"/>
-    
-    
-    <category term="Math" scheme="https://lucas-hao.github.io/hexo_zh/tags/Math/"/>
     
   </entry>
   

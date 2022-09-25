@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>PyTorch Inplace Operation Notes</title>
+      <link href="/hexo_zh/2022/09/25/computervision/pytorch-inplace-operation-notes/"/>
+      <url>/hexo_zh/2022/09/25/computervision/pytorch-inplace-operation-notes/</url>
+      
+        <content type="html"><![CDATA[<p>最近在跑实验的时候遇到了这样一个Bug花了很久才解决，记录一下学习一波以免以后再遇到。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">RuntimeError: one of the variables needed for gradient computation has been modified by an inplace operation: [torch.cuda.FloatTensor [3</span><br><span class="line">, 64, 7, 7]] is at version 2; expected version 1 instead. Hint: enable anomaly detection to find the operation that failed to compute it</span><br><span class="line">s gradient, with torch.autograd.set_detect_anomaly(True).</span><br></pre></td></tr></table></figure><p><span id="more"></span></p><h3 id="关于inplace-operation">关于Inplace Operation</h3><p>首先，这个问题从报错中可以看到是由于inplace operation导致的。经过查找，inplace operation指的就是PyTorch在计算一个值的时候不创建新的变量进行复制，而是直接改变原来的变量的值。比如以下代码，第一个就不是inplace operation而后两个就是inplace operation。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">x = torch.rand(<span class="number">2</span>)</span><br><span class="line">y = torch.rand(<span class="number">2</span>)</span><br><span class="line"><span class="comment"># non-inplace operation</span></span><br><span class="line">z = x + y</span><br><span class="line"><span class="comment"># inplace operation</span></span><br><span class="line">x.add_(y)</span><br><span class="line">x += y</span><br></pre></td></tr></table></figure><h3 id="解决过程">解决过程</h3><p>首先在网上搜到的资料都是说尽量移除掉所有的inplace operation，包括把Activation Layer的<code>inplace=True</code>去掉等等，但是都无法解决。然后就根据报错中的提示，使用<code>torch.autograd.set_detect_anomaly(True)</code>查找在哪里发生了inplace operation (参考<a href="https://github.com/pytorch/pytorch/issues/15803">Debugging feature for "modified by an inplace operation" errors · Issue #15803 · pytorch/pytorch · GitHub</a>)，最后提示如下报错</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">[W python_anomaly_mode.cpp:104] Warning: Error detected in CudnnConvolutionBackward. Traceback of forward call that caused the error:</span><br><span class="line">  File &quot;./train.py&quot;, line 44, in &lt;module&gt;</span><br><span class="line">    model.optimize_parameters()</span><br><span class="line">  File &quot;xxxx.py&quot;, line 374, in optimize_parameters</span><br><span class="line">    self.backward_all_net()</span><br><span class="line">  File &quot;xxxx.py&quot;, line 273, in backward_all_net</span><br><span class="line">    _, _, _, fake_B_x6_processed = self.pixelnet(fake_B_x6)</span><br><span class="line">  File &quot;/usr/local/lib/python3.6/dist-packages/torch/nn/modules/module.py&quot;, line 1051, in _call_impl</span><br><span class="line">    return forward_call(*input, **kwargs)</span><br><span class="line">  File &quot;xxxx.py&quot;, line 282, in forward</span><br><span class="line">    output = self.model_3(feature_256)</span><br><span class="line">  File &quot;/usr/local/lib/python3.6/dist-packages/torch/nn/modules/module.py&quot;, line 1051, in _call_impl</span><br><span class="line">    return forward_call(*input, **kwargs)</span><br><span class="line">  File &quot;/usr/local/lib/python3.6/dist-packages/torch/nn/modules/container.py&quot;, line 139, in forward</span><br><span class="line">    input = module(input)</span><br><span class="line">  File &quot;/usr/local/lib/python3.6/dist-packages/torch/nn/modules/module.py&quot;, line 1051, in _call_impl</span><br><span class="line">    return forward_call(*input, **kwargs)</span><br><span class="line">  File &quot;/usr/local/lib/python3.6/dist-packages/torch/nn/modules/conv.py&quot;, line 443, in forward</span><br><span class="line">    return self._conv_forward(input, self.weight, self.bias)</span><br><span class="line">  File &quot;/usr/local/lib/python3.6/dist-packages/torch/nn/modules/conv.py&quot;, line 440, in _conv_forward</span><br><span class="line">    self.padding, self.dilation, self.groups)</span><br><span class="line"> (function _print_stack)</span><br><span class="line">RuntimeError: one of the variables needed for gradient computation has been modified by an inplace operation: [torch.cuda.FloatTensor [3</span><br><span class="line">, 64, 7, 7]] is at version 2; expected version 1 instead. Hint: the backtrace further above shows the operation that failed to compute i</span><br><span class="line">ts gradient. The variable in question was changed in there or anywhere later. Good luck!</span><br><span class="line"></span><br></pre></td></tr></table></figure><p>然后发现貌似是在conv层发生了inplace operation，但是实在没有头绪，最后又找到一篇博文与我的情况非常类似(<a href="https://www.cnblogs.com/js2hou/p/13923089.html">RuntimeError: one of the variables needed for gradient computation has been modified by an inplace operation - Js2Hou - 博客园 (cnblogs.com)</a>)，最后发现是代码执行的顺序问题，原本的代码</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">optimize_parameters</span>(<span class="params">self</span>):</span></span><br><span class="line"></span><br><span class="line">    self.backward_all_net()        </span><br><span class="line">    </span><br><span class="line">    self.optimizer_gridnet.zero_grad()</span><br><span class="line">    self.loss_gridnet.backward(retain_graph=<span class="literal">True</span>)</span><br><span class="line">    self.optimizer_gridnet.step()</span><br><span class="line"></span><br><span class="line">    self.optimizer_pixelnet.zero_grad()</span><br><span class="line">    self.loss_pixelnet.backward(retain_graph=<span class="literal">True</span>)</span><br><span class="line">    self.optimizer_pixelnet.step()</span><br><span class="line"></span><br><span class="line">    self.optimizer_depixelnet.zero_grad()</span><br><span class="line">    self.loss_depixelnet.backward()</span><br><span class="line">    self.optimizer_depixelnet.step()<span class="comment"># 出错处</span></span><br><span class="line"></span><br><span class="line">    self.optimizer_D_gridnet.zero_grad()</span><br><span class="line">    self.backward_D_gridnet()</span><br><span class="line">    self.optimizer_D_gridnet.step()</span><br><span class="line"></span><br><span class="line">    self.optimizer_D_pixelnet.zero_grad()</span><br><span class="line">    self.backward_D_pixelnet()</span><br><span class="line">    self.optimizer_D_pixelnet.step()</span><br><span class="line"></span><br><span class="line">    self.optimizer_D_depixelnet.zero_grad()</span><br><span class="line">    self.backward_D_depixelnet()</span><br><span class="line">    self.optimizer_D_depixelnet.step()</span><br></pre></td></tr></table></figure><p>修改后的代码</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">optimize_parameters</span>(<span class="params">self</span>):</span></span><br><span class="line">    self.optimizer_gridnet.zero_grad()</span><br><span class="line">    self.optimizer_pixelnet.zero_grad()</span><br><span class="line">    self.optimizer_depixelnet.zero_grad()</span><br><span class="line">    self.optimizer_D_gridnet.zero_grad()</span><br><span class="line">    self.optimizer_D_pixelnet.zero_grad()</span><br><span class="line">    self.optimizer_D_depixelnet.zero_grad()</span><br><span class="line"></span><br><span class="line">    self.backward_all_net()        </span><br><span class="line"></span><br><span class="line">    self.loss_gridnet.backward(retain_graph=<span class="literal">True</span>)</span><br><span class="line">    self.loss_pixelnet.backward(retain_graph=<span class="literal">True</span>)</span><br><span class="line">    self.loss_depixelnet.backward()</span><br><span class="line"></span><br><span class="line">    self.optimizer_gridnet.step()</span><br><span class="line">    self.optimizer_pixelnet.step()</span><br><span class="line">    self.optimizer_depixelnet.step()</span><br><span class="line"></span><br><span class="line">    self.backward_D_gridnet()</span><br><span class="line">    self.backward_D_pixelnet()</span><br><span class="line">    self.backward_D_depixelnet()</span><br><span class="line"></span><br><span class="line">    self.optimizer_D_gridnet.step()</span><br><span class="line">    self.optimizer_D_pixelnet.step()</span><br><span class="line">    self.optimizer_D_depixelnet.step()</span><br></pre></td></tr></table></figure><p>终于顺利解决！！！</p><h3 id="参考资料">参考资料</h3><ol type="1"><li><p><a href="https://zhuanlan.zhihu.com/p/38475183">关于 pytorch inplace operation, 需要知道的几件事 - 知乎 (zhihu.com)</a></p></li><li><p><a href="https://blog.csdn.net/york1996/article/details/81835873">在PyTorch中in-place operation的含义_York1996的博客-CSDN博客_inplace operation</a></p></li><li><p><a href="https://github.com/pytorch/pytorch/issues/15803">Debugging feature for "modified by an inplace operation" errors · Issue #15803 · pytorch/pytorch · GitHub</a></p></li><li><p><a href="https://www.cnblogs.com/js2hou/p/13923089.html">RuntimeError: one of the variables needed for gradient computation has been modified by an inplace operation - Js2Hou - 博客园 (cnblogs.com)</a></p></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> PyTorch </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> PyTorch </tag>
+            
+            <tag> CV </tag>
+            
+            <tag> Python </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>UE脚本方案UnLua入门</title>
       <link href="/hexo_zh/2022/08/10/gamegraphics/ue-jiao-ben-fang-an-unlua-ru-men/"/>
       <url>/hexo_zh/2022/08/10/gamegraphics/ue-jiao-ben-fang-an-unlua-ru-men/</url>
@@ -105,9 +134,9 @@
             
             <tag> CV </tag>
             
-            <tag> python </tag>
-            
             <tag> 图像处理 </tag>
+            
+            <tag> python </tag>
             
         </tags>
       
@@ -134,9 +163,9 @@
             
             <tag> CV </tag>
             
-            <tag> python </tag>
-            
             <tag> 图像处理 </tag>
+            
+            <tag> python </tag>
             
         </tags>
       
@@ -188,11 +217,11 @@
       
         <tags>
             
+            <tag> CV </tag>
+            
             <tag> Python </tag>
             
             <tag> Pytorch </tag>
-            
-            <tag> CV </tag>
             
         </tags>
       
@@ -680,9 +709,9 @@
       
         <tags>
             
-            <tag> Android </tag>
-            
             <tag> Bug </tag>
+            
+            <tag> Android </tag>
             
         </tags>
       
@@ -1132,9 +1161,9 @@
       
         <tags>
             
-            <tag> PostgreSQL </tag>
-            
             <tag> AWS </tag>
+            
+            <tag> PostgreSQL </tag>
             
         </tags>
       
@@ -1535,7 +1564,7 @@
             
             <tag> 概率论 </tag>
             
-            <tag> python </tag>
+            <tag> Python </tag>
             
         </tags>
       
