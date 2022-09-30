@@ -6,7 +6,7 @@
   <link href="https://lucas-hao.github.io/hexo_zh/atom.xml" rel="self"/>
   
   <link href="https://lucas-hao.github.io/hexo_zh/"/>
-  <updated>2022-09-25T15:32:25.151Z</updated>
+  <updated>2022-09-30T09:55:11.397Z</updated>
   <id>https://lucas-hao.github.io/hexo_zh/</id>
   
   <author>
@@ -15,6 +15,82 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>UE5风格化渲染</title>
+    <link href="https://lucas-hao.github.io/hexo_zh/2022/09/30/gamegraphics/ue5-feng-ge-hua-xuan-ran/"/>
+    <id>https://lucas-hao.github.io/hexo_zh/2022/09/30/gamegraphics/ue5-feng-ge-hua-xuan-ran/</id>
+    <published>2022-09-30T09:30:41.000Z</published>
+    <updated>2022-09-30T09:55:11.397Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;ue5-风格化渲染&quot;&gt;UE5 风格化渲染&lt;/h1&gt;
+&lt;p&gt;风格化渲染主要需要有以下几个部分&lt;/p&gt;
+&lt;ol type=&quot;1&quot;&gt;
+&lt;li&gt;风格化描边&lt;/li&gt;
+&lt;li&gt;Diffuse, Specular 等效果的处理&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;未完待续&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Unreal Engine" scheme="https://lucas-hao.github.io/hexo_zh/categories/Unreal-Engine/"/>
+    
+    
+    <category term="Unreal Engine" scheme="https://lucas-hao.github.io/hexo_zh/tags/Unreal-Engine/"/>
+    
+    <category term="Rendering" scheme="https://lucas-hao.github.io/hexo_zh/tags/Rendering/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Latex的使用详解笔记(常用数学符号、图片表格等)持续更新</title>
+    <link href="https://lucas-hao.github.io/hexo_zh/2022/09/30/other/latex-notes/"/>
+    <id>https://lucas-hao.github.io/hexo_zh/2022/09/30/other/latex-notes/</id>
+    <published>2022-09-30T09:10:03.000Z</published>
+    <updated>2022-09-30T09:25:06.352Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;本篇笔记用来记录在使用LaTeX过程中经常碰到的LaTeX数学符号以及一些基础的常用的操作比如添加图片，添加代码，如果有的话还会收藏一些比较实用的模板比如CV模板，作业模板论文模板等等。持续更新……&lt;/p&gt;
+&lt;p&gt;</summary>
+    
+    
+    
+    <category term="Math" scheme="https://lucas-hao.github.io/hexo_zh/categories/Math/"/>
+    
+    
+    <category term="Math" scheme="https://lucas-hao.github.io/hexo_zh/tags/Math/"/>
+    
+    <category term="Latex" scheme="https://lucas-hao.github.io/hexo_zh/tags/Latex/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>算法：最小生成树(Minimum Spanning Tree)</title>
+    <link href="https://lucas-hao.github.io/hexo_zh/2022/09/28/algorithms/algorithm-minimum-spanning-tree/"/>
+    <id>https://lucas-hao.github.io/hexo_zh/2022/09/28/algorithms/algorithm-minimum-spanning-tree/</id>
+    <published>2022-09-28T05:12:17.000Z</published>
+    <updated>2022-09-30T09:11:23.887Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;生成树指的是一个连通图G的覆盖所有顶点的无环子图，最小生成树指的是所有支撑树中加权和最小的生成树。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;最小生成树的应用：聚类分析、网络架构设计、VLSI布线设计等诸多实际应用问题，都可转化并描述为最小支 撑树的构造问题。在这些应用中，边的权重大多对应于某种可量化的成本，因此作为对应优化问 题的基本模型，最小支撑树的价值不言而喻。——《数据结构C++版》&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;求最小支撑树的算法主要采用贪心算法，最著名的两个算法分别是Prim算法和Kruskal算法。&lt;/p&gt;
+&lt;p&gt;本篇主要参考&lt;a href=&quot;https://www.geeksforgeeks.org/kruskals-minimum-spanning-tree-algorithm-greedy-algo-2/&quot;&gt;Kruskal’s Minimum Spanning Tree Algorithm | Greedy Algo-2 - GeeksforGeeks&lt;/a&gt;以及以及&lt;a href=&quot;https://www.geeksforgeeks.org/prims-minimum-spanning-tree-mst-greedy-algo-5/?ref=lbp&quot;&gt;Prim’s Minimum Spanning Tree (MST) | Greedy Algo-5 - GeeksforGeeks&lt;/a&gt;，GeeksforGeeks上的数据结构今天刚好搜到了，确实讲的不错，转载收藏一下作为笔记。&lt;/p&gt;
+&lt;p&gt;</summary>
+    
+    
+    
+    <category term="数据结构与算法" scheme="https://lucas-hao.github.io/hexo_zh/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
+    
+    
+    <category term="算法" scheme="https://lucas-hao.github.io/hexo_zh/tags/%E7%AE%97%E6%B3%95/"/>
+    
+    <category term="C++" scheme="https://lucas-hao.github.io/hexo_zh/tags/C/"/>
+    
+  </entry>
   
   <entry>
     <title>PyTorch Inplace Operation Notes</title>
@@ -240,9 +316,9 @@
     <category term="Bug" scheme="https://lucas-hao.github.io/hexo_zh/categories/Bug/"/>
     
     
-    <category term="Bug" scheme="https://lucas-hao.github.io/hexo_zh/tags/Bug/"/>
-    
     <category term="C++" scheme="https://lucas-hao.github.io/hexo_zh/tags/C/"/>
+    
+    <category term="Bug" scheme="https://lucas-hao.github.io/hexo_zh/tags/Bug/"/>
     
   </entry>
   
@@ -373,8 +449,8 @@
   
   <entry>
     <title>面试-Jane Street 电面</title>
-    <link href="https://lucas-hao.github.io/hexo_zh/2021/09/27/mian-shi-jane-street-dian-mian/"/>
-    <id>https://lucas-hao.github.io/hexo_zh/2021/09/27/mian-shi-jane-street-dian-mian/</id>
+    <link href="https://lucas-hao.github.io/hexo_zh/2021/09/27/other/mian-shi-jane-street-dian-mian/"/>
+    <id>https://lucas-hao.github.io/hexo_zh/2021/09/27/other/mian-shi-jane-street-dian-mian/</id>
     <published>2021-09-27T06:31:42.000Z</published>
     <updated>2022-07-27T15:28:58.258Z</updated>
     
@@ -407,76 +483,6 @@
     
     
     <category term="算法" scheme="https://lucas-hao.github.io/hexo_zh/tags/%E7%AE%97%E6%B3%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>1109. 航班预订统计</title>
-    <link href="https://lucas-hao.github.io/hexo_zh/2021/09/24/leetcode/1109-hang-ban-yu-ding-tong-ji/"/>
-    <id>https://lucas-hao.github.io/hexo_zh/2021/09/24/leetcode/1109-hang-ban-yu-ding-tong-ji/</id>
-    <published>2021-09-24T13:02:30.000Z</published>
-    <updated>2021-09-24T13:11:00.000Z</updated>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;题目描述&quot;&gt;题目描述&lt;/h2&gt;
-&lt;p&gt;这里有 n 个航班，它们分别从 1 到 n 进行编号。&lt;/p&gt;
-&lt;p&gt;有一份航班预订表 bookings ，表中第 i 条预订记录 bookings[i] = [firsti, lasti, seatsi] 意味着在从 firsti 到 lasti （包含 firsti 和 lasti ）的 每个航班 上预订了 seatsi 个座位。&lt;/p&gt;
-&lt;p&gt;请你返回一个长度为 n 的数组 answer，里面的元素是每个航班预定的座位总数。&lt;/p&gt;
-&lt;p&gt;</summary>
-    
-    
-    
-    <category term="LeetCode刷题笔记" scheme="https://lucas-hao.github.io/hexo_zh/categories/LeetCode%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/"/>
-    
-    
-    <category term="Java" scheme="https://lucas-hao.github.io/hexo_zh/tags/Java/"/>
-    
-    <category term="LeetCode" scheme="https://lucas-hao.github.io/hexo_zh/tags/LeetCode/"/>
-    
-    <category term="差分" scheme="https://lucas-hao.github.io/hexo_zh/tags/%E5%B7%AE%E5%88%86/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Java异常java.util.ConcurrentModificationException详解（转载）</title>
-    <link href="https://lucas-hao.github.io/hexo_zh/2021/08/02/javanote/java-yi-chang-java-util-concurrentmodificationexception-xiang-jie/"/>
-    <id>https://lucas-hao.github.io/hexo_zh/2021/08/02/javanote/java-yi-chang-java-util-concurrentmodificationexception-xiang-jie/</id>
-    <published>2021-08-02T01:16:15.000Z</published>
-    <updated>2021-08-02T01:43:30.000Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;最近在Android开发的过程中，使用WorkerManager的时候产生了报错java.util.ConcurrentModificationException，于是就到网上进行查询，感觉这篇文章讲述的比较详尽，记录学习一下。&lt;/p&gt;
-&lt;p&gt;原文原载于&lt;a href=&quot;https://www.cnblogs.com/snowater/p/8024776.html&quot;&gt;java.util.ConcurrentModificationException 异常问题详解&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;</summary>
-    
-    
-    
-    <category term="Java学习笔记" scheme="https://lucas-hao.github.io/hexo_zh/categories/Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-    
-    <category term="Bug" scheme="https://lucas-hao.github.io/hexo_zh/tags/Bug/"/>
-    
-    <category term="Java" scheme="https://lucas-hao.github.io/hexo_zh/tags/Java/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Android中常用的一些包(记录一下方便以后使用)</title>
-    <link href="https://lucas-hao.github.io/hexo_zh/2021/07/30/android/android-zhong-chang-yong-de-yi-xie-bao-ji-lu-yi-xia-fang-bian-yi-hou-shi-yong/"/>
-    <id>https://lucas-hao.github.io/hexo_zh/2021/07/30/android/android-zhong-chang-yong-de-yi-xie-bao-ji-lu-yi-xia-fang-bian-yi-hou-shi-yong/</id>
-    <published>2021-07-30T08:44:02.000Z</published>
-    <updated>2021-08-09T07:06:26.000Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;Android中有一些常用的一些包需要我们手动添加到dependency中去，记录一下方便以后使用&lt;/p&gt;
-&lt;p&gt;</summary>
-    
-    
-    
-    <category term="Android" scheme="https://lucas-hao.github.io/hexo_zh/categories/Android/"/>
-    
-    
-    <category term="Android" scheme="https://lucas-hao.github.io/hexo_zh/tags/Android/"/>
     
   </entry>
   
