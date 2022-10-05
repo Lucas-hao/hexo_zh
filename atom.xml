@@ -6,7 +6,7 @@
   <link href="https://lucas-hao.github.io/hexo_zh/atom.xml" rel="self"/>
   
   <link href="https://lucas-hao.github.io/hexo_zh/"/>
-  <updated>2022-09-30T09:55:11.397Z</updated>
+  <updated>2022-10-05T17:33:34.587Z</updated>
   <id>https://lucas-hao.github.io/hexo_zh/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>图形学入门笔记3:Path Tracing-Games101作业7</title>
+    <link href="https://lucas-hao.github.io/hexo_zh/2022/10/05/gamegraphics/tu-xing-xue-ru-men-bi-ji-3-path-tracing/"/>
+    <id>https://lucas-hao.github.io/hexo_zh/2022/10/05/gamegraphics/tu-xing-xue-ru-men-bi-ji-3-path-tracing/</id>
+    <published>2022-10-05T11:57:26.000Z</published>
+    <updated>2022-10-05T17:33:34.587Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;Path tracing笔记以及Games101作业7代码相关解读以及实现。笔记包括&lt;/p&gt;
+&lt;ol type=&quot;1&quot;&gt;
+&lt;li&gt;辐射度量学相关概念&lt;/li&gt;
+&lt;li&gt;渲染方程&lt;/li&gt;
+&lt;li&gt;蒙特卡洛积分&lt;/li&gt;
+&lt;li&gt;Path Tracing逻辑。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;</summary>
+    
+    
+    
+    <category term="图形学" scheme="https://lucas-hao.github.io/hexo_zh/categories/%E5%9B%BE%E5%BD%A2%E5%AD%A6/"/>
+    
+    
+    <category term="C++" scheme="https://lucas-hao.github.io/hexo_zh/tags/C/"/>
+    
+    <category term="图形学" scheme="https://lucas-hao.github.io/hexo_zh/tags/%E5%9B%BE%E5%BD%A2%E5%AD%A6/"/>
+    
+  </entry>
   
   <entry>
     <title>UE5风格化渲染</title>
@@ -316,9 +344,9 @@
     <category term="Bug" scheme="https://lucas-hao.github.io/hexo_zh/categories/Bug/"/>
     
     
-    <category term="C++" scheme="https://lucas-hao.github.io/hexo_zh/tags/C/"/>
-    
     <category term="Bug" scheme="https://lucas-hao.github.io/hexo_zh/tags/Bug/"/>
+    
+    <category term="C++" scheme="https://lucas-hao.github.io/hexo_zh/tags/C/"/>
     
   </entry>
   
@@ -390,9 +418,9 @@
     
     <category term="算法" scheme="https://lucas-hao.github.io/hexo_zh/tags/%E7%AE%97%E6%B3%95/"/>
     
-    <category term="Java" scheme="https://lucas-hao.github.io/hexo_zh/tags/Java/"/>
-    
     <category term="LeetCode" scheme="https://lucas-hao.github.io/hexo_zh/tags/LeetCode/"/>
+    
+    <category term="Java" scheme="https://lucas-hao.github.io/hexo_zh/tags/Java/"/>
     
   </entry>
   
@@ -441,9 +469,9 @@
     
     <category term="算法" scheme="https://lucas-hao.github.io/hexo_zh/tags/%E7%AE%97%E6%B3%95/"/>
     
-    <category term="Java" scheme="https://lucas-hao.github.io/hexo_zh/tags/Java/"/>
-    
     <category term="LeetCode" scheme="https://lucas-hao.github.io/hexo_zh/tags/LeetCode/"/>
+    
+    <category term="Java" scheme="https://lucas-hao.github.io/hexo_zh/tags/Java/"/>
     
   </entry>
   
@@ -464,25 +492,6 @@
     
     
     <category term="面试" scheme="https://lucas-hao.github.io/hexo_zh/tags/%E9%9D%A2%E8%AF%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>算法题目类型总结</title>
-    <link href="https://lucas-hao.github.io/hexo_zh/2021/09/24/algorithms/suan-fa-ti-mu-lei-xing-zong-jie/"/>
-    <id>https://lucas-hao.github.io/hexo_zh/2021/09/24/algorithms/suan-fa-ti-mu-lei-xing-zong-jie/</id>
-    <published>2021-09-24T13:02:55.000Z</published>
-    <updated>2022-03-10T16:36:32.361Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;算法题目类型总结，题目为LeetCode或者HackerRank上的题目。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="数据结构与算法" scheme="https://lucas-hao.github.io/hexo_zh/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
-    
-    
-    <category term="算法" scheme="https://lucas-hao.github.io/hexo_zh/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   

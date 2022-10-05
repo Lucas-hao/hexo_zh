@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>图形学入门笔记3:Path Tracing-Games101作业7</title>
+      <link href="/hexo_zh/2022/10/05/gamegraphics/tu-xing-xue-ru-men-bi-ji-3-path-tracing/"/>
+      <url>/hexo_zh/2022/10/05/gamegraphics/tu-xing-xue-ru-men-bi-ji-3-path-tracing/</url>
+      
+        <content type="html"><![CDATA[<p>Path tracing笔记以及Games101作业7代码相关解读以及实现。笔记包括</p><ol type="1"><li>辐射度量学相关概念</li><li>渲染方程</li><li>蒙特卡洛积分</li><li>Path Tracing逻辑。</li></ol><p><span id="more"></span></p><h3 id="辐射度量学-radiometry">辐射度量学 (Radiometry)</h3><ul><li><p>辐射通量 (Radiant flux (power)) <span class="math inline">\(\Phi=\frac{\mathrm{d}Q}{\mathrm{d}t}\)</span> Energy per unit time，表示单位时间内光穿过一个截面的光能。</p></li><li><p>辐射强度 (Radiant intensity)，<span class="math inline">\(I(\omega)=\frac{\mathrm{d}\Phi}{\mathrm{d}\omega}\)</span> Power per unit solid angle，表示单位立体角上的辐射通量。</p></li><li><p>辐射率 (Radiance)，<span class="math inline">\(L(\mathrm p,\omega)=\frac{\mathrm d^2\Phi(p,\omega)}{\mathrm d \omega\cdot\mathrm dA\cos\theta}\)</span> Power emitted, reflected, transmitted or received by a surface, per unit solid angle, per projected unit area，表示单位立体角，单位投影面积上的辐射通量。这里多出来一个<span class="math inline">\(\cos \theta\)</span>是因为Lamber's Cosine Law，即阳光在斜照的时候强度会由于倾角变成原来的<span class="math inline">\(\cos \theta\)</span>倍。</p></li><li><p>辐照度 (Irradiance)，<span class="math inline">\(E(\mathrm{x})=\frac{\mathrm d\Phi(\mathrm x)}{\mathrm d A}\)</span> Power per unit area incident on a surface point，表示单位面积上的辐射通量。这里有一种记忆方法，在Games104上学到的，将Irradiance拆分成Ir(In)和Radiance记为进入到表面的光照强度。</p></li><li><p>立体角 (Solid Angles)</p><figure><img src="https://raw.githubusercontent.com/Lucas-hao/Picgo-Picture/master/img/image-20221005201356513.png" alt="image-20221005201356513" /><figcaption aria-hidden="true">image-20221005201356513</figcaption></figure></li></ul><h3 id="bidirectional-reflectance-distribution-function-brdf">Bidirectional Reflectance Distribution Function (BRDF)</h3><ul><li>渲染方程 (Rendering Equation) <span class="math display">\[L_o(p,\omega_0)=L_e(p,\omega_0)+\int_{\Omega+}L_i(p,\omega_i)f_r(p,\omega_i,\omega_0)(n\cdot\omega_i)\mathrm d\omega_i\]</span> 其中第一项表示物体本身的发出的光照强度，第二项的积分所包括的内容就是我们的反射函数 (Reflection Function)，即 <span class="math display">\[L_r(\mathrm p, \omega_r)=\int_{\Omega+}L_i(p,\omega_i)f_r(p,\omega_i,\omega_0)\cos\theta_i\mathrm d\omega_i\]</span> 其中第一项为入射方向的Radiance，代表从单位立体角方向入射到单位面积上的光照强度，第二项就是双向反射分布函数，他表示以下比值 <span class="math display">\[f_r(\omega_i\rightarrow\omega_r)=\frac{\mathrm dL_r(\omega_r)}{\mathrm dE_i(\omega_i)}=\frac{\mathrm dL_r(\omega_r)}{L_i(\omega_i)\cos\theta_i\mathrm d\omega_i}~~[\frac{1}{\text{sr}}]\]</span> 也就是出射光Radiance与入射光Irradiance的比值，也就是代表了在各个方向上多少光照会被反射出去。这里的积分是对入射光的Radiance进行积分，得到的就是入射光在半球面上的Irradiance，然后和BRDF相乘得到的就是反射出的在单位立体角上的Radiance。</li></ul><h3 id="蒙特卡洛积分-monte-carlo-integration">蒙特卡洛积分 (Monte Carlo Integration)</h3><ul><li>Monte Carlo estimator <span class="math inline">\(F_N=\frac{1}{N}\sum^N_{i=1}\frac{f(X_i)}{p(X_i)}\)</span>, Example, Basic (Uniform) Monte Carlo estimator <span class="math inline">\(F_N=\frac{b-a}{N}\sum_{i=1}^Nf(X_i)\)</span></li><li>Monte Carlo Integration <span class="math inline">\(\int f(x)\mathrm dx=\frac{1}{N}\sum_{i=1}^N\frac{f(X_i)}{p(X_i)}\)</span> The more samples, the less variance.</li></ul><h3 id="路径追踪-path-tracing">路径追踪 (Path Tracing)</h3><p>Whitted-style 光线追踪始终采用镜面反射，在光线与diffuse表面相交时停止反射，这一假设会造成一些问题。首先，比如说诸如Glossy (感觉类似磨砂)的效果就无法表现出来。其次，由于不在diffuse表面进行反射，物体之间由于光线反射形成的现象比如说康奈尔Box中的墙面会映射出左右两面墙的红绿两种颜色(如下图)就无法表现出来。</p><figure><img src="https://raw.githubusercontent.com/Lucas-hao/Picgo-Picture/master/img/image-20221005213331204.png" alt="image-20221005213331204" /><figcaption aria-hidden="true">image-20221005213331204</figcaption></figure><p>Path tracing使用Rendering Equation进行光照的计算。在计算Rendering Equation中的积分部分时，我们就可以使用Monte Carlo Integration计算。一个简单的Monte Carlo的方法如下图所示 (Direct Illumination)，其中的pdf最直观的办法我们可以视为uniform的，也就是<span class="math inline">\(\mathrm{pdf}=\frac{1}{2\pi}\)</span>。</p><figure><img src="https://raw.githubusercontent.com/Lucas-hao/Picgo-Picture/master/img/image-20221005214101763.png" alt="image-20221005214101763" /><figcaption aria-hidden="true">image-20221005214101763</figcaption></figure><p>以上是最简单的直接光照的蒙特卡洛积分，然后我们再加上递归的间接光照以及控制递归深度就完成了最终的Path Tracing。为了控制深度，我们使用一种叫做俄罗斯轮盘赌 (Russian Roulette)的方法。非常简单，这种方法就是在每次光线进行反射的时候进行一次随机选择，p的概率继续递归，(1-p)的概率停止，如果继续反射，则我们计算反射的光照强度为<span class="math inline">\(\frac{L_r(p,\omega_r)}{p}\)</span>，这样我们最后根据数学期望得到的光照强度仍然是<span class="math inline">\(L_r(p,\omega_r)\)</span>。使用后RR的Path Tracing伪代码如下所示。</p><figure><img src="https://raw.githubusercontent.com/Lucas-hao/Picgo-Picture/master/img/image-20221005225016368.png" alt="image-20221005225016368" /><figcaption aria-hidden="true">image-20221005225016368</figcaption></figure><p>最后还有一个问题需要解决，使用以上方法进行采样的效率实际上是不高的，因为很多光线实际上是反射不到光源上的，那样就会造成很多浪费。因此，我们可以使用另外一种采样方式，Sampling the Light，从光源处采样。为了实现光源采样，我们可以重写反射方程，将对入射角度<span class="math inline">\(\omega\)</span>的积分转化为对光源面积<span class="math inline">\(A\)</span>的积分，由于<span class="math inline">\(\mathrm d\omega=\frac{\mathrm dA\cos\theta&#39;}{\Vert x&#39;-x\Vert^2}\)</span> (由立体角的定义得出)，因此 <span class="math display">\[L_r(\mathrm p,\omega_r)&amp;=\int_{\Omega+}L_i(x,\omega_i)f_r(x,\omega_i,\omega_0)\cos\theta_i\mathrm d\omega_i \\    &amp;=\int_{A}L_i(x,\omega_i)f_r(p,\omega_i,\omega_0)\frac{\cos\theta_i\cos\theta&#39;_i}{\Vert x&#39;-x\Vert^2}\mathrm d\omega_i\]</span> <img src="https://raw.githubusercontent.com/Lucas-hao/Picgo-Picture/master/img/image-20221005230600428.png" alt="image-20221005230600428" /></p><p>最终版的Path Tracing伪代码如下</p><figure><img src="https://raw.githubusercontent.com/Lucas-hao/Picgo-Picture/master/img/image-20221005230708399.png" alt="image-20221005230708399" /><figcaption aria-hidden="true">image-20221005230708399</figcaption></figure><h3 id="作业5">作业5</h3><p>未完待续</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 图形学 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> C++ </tag>
+            
+            <tag> 图形学 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>UE5风格化渲染</title>
       <link href="/hexo_zh/2022/09/30/gamegraphics/ue5-feng-ge-hua-xuan-ran/"/>
       <url>/hexo_zh/2022/09/30/gamegraphics/ue5-feng-ge-hua-xuan-ran/</url>
@@ -354,9 +381,9 @@
       
         <tags>
             
-            <tag> C++ </tag>
-            
             <tag> Bug </tag>
+            
+            <tag> C++ </tag>
             
         </tags>
       
@@ -439,9 +466,9 @@
             
             <tag> 算法 </tag>
             
-            <tag> Java </tag>
-            
             <tag> LeetCode </tag>
+            
+            <tag> Java </tag>
             
         </tags>
       
@@ -495,9 +522,9 @@
             
             <tag> 算法 </tag>
             
-            <tag> Java </tag>
-            
             <tag> LeetCode </tag>
+            
+            <tag> Java </tag>
             
         </tags>
       
@@ -572,9 +599,9 @@
       
         <tags>
             
-            <tag> Java </tag>
-            
             <tag> LeetCode </tag>
+            
+            <tag> Java </tag>
             
             <tag> 差分 </tag>
             
@@ -601,9 +628,9 @@
       
         <tags>
             
-            <tag> Java </tag>
-            
             <tag> Bug </tag>
+            
+            <tag> Java </tag>
             
         </tags>
       
@@ -734,9 +761,9 @@
       
         <tags>
             
-            <tag> Java </tag>
-            
             <tag> LeetCode </tag>
+            
+            <tag> Java </tag>
             
             <tag> 双指针 </tag>
             
@@ -959,9 +986,9 @@
       
         <tags>
             
-            <tag> Java </tag>
-            
             <tag> LeetCode </tag>
+            
+            <tag> Java </tag>
             
             <tag> 链表 </tag>
             
@@ -988,9 +1015,9 @@
       
         <tags>
             
-            <tag> Java </tag>
-            
             <tag> LeetCode </tag>
+            
+            <tag> Java </tag>
             
             <tag> 双指针 </tag>
             
