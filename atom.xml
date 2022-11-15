@@ -6,7 +6,7 @@
   <link href="https://lucas-hao.github.io/hexo_zh/atom.xml" rel="self"/>
   
   <link href="https://lucas-hao.github.io/hexo_zh/"/>
-  <updated>2022-10-05T17:41:50.003Z</updated>
+  <updated>2022-10-07T10:44:37.087Z</updated>
   <id>https://lucas-hao.github.io/hexo_zh/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://lucas-hao.github.io/hexo_zh/2022/10/05/gamegraphics/tu-xing-xue-ru-men-bi-ji-3-path-tracing/"/>
     <id>https://lucas-hao.github.io/hexo_zh/2022/10/05/gamegraphics/tu-xing-xue-ru-men-bi-ji-3-path-tracing/</id>
     <published>2022-10-05T11:57:26.000Z</published>
-    <updated>2022-10-05T17:41:50.003Z</updated>
+    <updated>2022-10-07T10:44:37.087Z</updated>
     
     
     <summary type="html">&lt;p&gt;Path tracing笔记以及Games101作业7代码相关解读以及实现。笔记包括&lt;/p&gt;
@@ -76,7 +76,7 @@
     <link href="https://lucas-hao.github.io/hexo_zh/2022/09/30/other/latex-notes/"/>
     <id>https://lucas-hao.github.io/hexo_zh/2022/09/30/other/latex-notes/</id>
     <published>2022-09-30T09:10:03.000Z</published>
-    <updated>2022-10-06T01:53:49.484Z</updated>
+    <updated>2022-11-03T15:24:22.002Z</updated>
     
     
     <summary type="html">&lt;p&gt;本篇笔记用来记录在使用LaTeX过程中经常碰到的LaTeX数学符号以及一些基础的常用的操作比如添加图片，添加代码，如果有的话还会收藏一些比较实用的模板比如CV模板，作业模板论文模板等等。持续更新……&lt;/p&gt;
@@ -95,8 +95,8 @@
   
   <entry>
     <title>算法：最小生成树(Minimum Spanning Tree)</title>
-    <link href="https://lucas-hao.github.io/hexo_zh/2022/09/28/algorithms/algorithm-minimum-spanning-tree/"/>
-    <id>https://lucas-hao.github.io/hexo_zh/2022/09/28/algorithms/algorithm-minimum-spanning-tree/</id>
+    <link href="https://lucas-hao.github.io/hexo_zh/2022/09/28/algorithms/suan-fa-minimum-spanning-tree/"/>
+    <id>https://lucas-hao.github.io/hexo_zh/2022/09/28/algorithms/suan-fa-minimum-spanning-tree/</id>
     <published>2022-09-28T05:12:17.000Z</published>
     <updated>2022-09-30T09:11:23.887Z</updated>
     
@@ -114,18 +114,18 @@
     <category term="数据结构与算法" scheme="https://lucas-hao.github.io/hexo_zh/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
     
     
-    <category term="C++" scheme="https://lucas-hao.github.io/hexo_zh/tags/C/"/>
-    
     <category term="算法" scheme="https://lucas-hao.github.io/hexo_zh/tags/%E7%AE%97%E6%B3%95/"/>
+    
+    <category term="C++" scheme="https://lucas-hao.github.io/hexo_zh/tags/C/"/>
     
   </entry>
   
   <entry>
     <title>PyTorch Inplace Operation Notes</title>
-    <link href="https://lucas-hao.github.io/hexo_zh/2022/09/25/computervision/pytorch-inplace-operation-notes/"/>
-    <id>https://lucas-hao.github.io/hexo_zh/2022/09/25/computervision/pytorch-inplace-operation-notes/</id>
+    <link href="https://lucas-hao.github.io/hexo_zh/2022/09/25/bug/pytorch-inplace-operation-notes/"/>
+    <id>https://lucas-hao.github.io/hexo_zh/2022/09/25/bug/pytorch-inplace-operation-notes/</id>
     <published>2022-09-25T15:05:57.000Z</published>
-    <updated>2022-09-25T15:32:25.151Z</updated>
+    <updated>2022-10-08T06:04:17.151Z</updated>
     
     
     <summary type="html">&lt;p&gt;最近在跑实验的时候遇到了这样一个Bug花了很久才解决，记录一下学习一波以免以后再遇到。&lt;/p&gt;
@@ -134,8 +134,10 @@
     
     
     
-    <category term="PyTorch" scheme="https://lucas-hao.github.io/hexo_zh/categories/PyTorch/"/>
+    <category term="Bug" scheme="https://lucas-hao.github.io/hexo_zh/categories/Bug/"/>
     
+    
+    <category term="Bug" scheme="https://lucas-hao.github.io/hexo_zh/tags/Bug/"/>
     
     <category term="PyTorch" scheme="https://lucas-hao.github.io/hexo_zh/tags/PyTorch/"/>
     
@@ -312,7 +314,7 @@
     <link href="https://lucas-hao.github.io/hexo_zh/2022/02/28/gamegraphics/tu-xing-xue-ru-men-bi-ji-2-basic-ray-tracing-games101-zuo-ye-5/"/>
     <id>https://lucas-hao.github.io/hexo_zh/2022/02/28/gamegraphics/tu-xing-xue-ru-men-bi-ji-2-basic-ray-tracing-games101-zuo-ye-5/</id>
     <published>2022-02-27T18:15:17.000Z</published>
-    <updated>2022-09-12T02:13:47.902Z</updated>
+    <updated>2022-10-07T07:26:21.689Z</updated>
     
     
     <summary type="html">&lt;p&gt;Games101作业5实现笔记以及Witted Style Ray Tracing和Moller Trumbore Algorithm笔记&lt;/p&gt;</summary>

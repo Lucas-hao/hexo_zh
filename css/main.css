@@ -2839,14 +2839,14 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: 50% 50%;
-  background-size: 100% 100%;
+  background-size: auto;
 }
 body.darkmode--activated {
   background-image: url("/hexo_zh/images/body-dark.jpg");
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: 50%, 50%;
-  background-size: 100%, 100%;
+  background-size: auto;
 }
 .content-wrap {
   opacity: 0.9;
