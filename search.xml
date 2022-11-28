@@ -130,11 +130,11 @@
             
             <tag> Bug </tag>
             
-            <tag> PyTorch </tag>
+            <tag> Python </tag>
             
             <tag> CV </tag>
             
-            <tag> Python </tag>
+            <tag> PyTorch </tag>
             
         </tags>
       
@@ -327,11 +327,11 @@
       
         <tags>
             
-            <tag> CV </tag>
-            
             <tag> Python </tag>
             
             <tag> Pytorch </tag>
+            
+            <tag> CV </tag>
             
         </tags>
       
@@ -383,9 +383,9 @@
       
         <tags>
             
-            <tag> Bug </tag>
-            
             <tag> C++ </tag>
+            
+            <tag> Bug </tag>
             
         </tags>
       
@@ -630,9 +630,9 @@
       
         <tags>
             
-            <tag> Bug </tag>
-            
             <tag> Java </tag>
+            
+            <tag> Bug </tag>
             
         </tags>
       
@@ -1736,9 +1736,9 @@
       
         <tags>
             
-            <tag> 回溯法 </tag>
-            
             <tag> C </tag>
+            
+            <tag> 回溯法 </tag>
             
         </tags>
       

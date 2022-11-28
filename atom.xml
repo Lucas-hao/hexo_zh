@@ -139,11 +139,11 @@
     
     <category term="Bug" scheme="https://lucas-hao.github.io/hexo_zh/tags/Bug/"/>
     
-    <category term="PyTorch" scheme="https://lucas-hao.github.io/hexo_zh/tags/PyTorch/"/>
+    <category term="Python" scheme="https://lucas-hao.github.io/hexo_zh/tags/Python/"/>
     
     <category term="CV" scheme="https://lucas-hao.github.io/hexo_zh/tags/CV/"/>
     
-    <category term="Python" scheme="https://lucas-hao.github.io/hexo_zh/tags/Python/"/>
+    <category term="PyTorch" scheme="https://lucas-hao.github.io/hexo_zh/tags/PyTorch/"/>
     
   </entry>
   
@@ -301,11 +301,11 @@
     <category term="Pytorch" scheme="https://lucas-hao.github.io/hexo_zh/categories/Pytorch/"/>
     
     
-    <category term="CV" scheme="https://lucas-hao.github.io/hexo_zh/tags/CV/"/>
-    
     <category term="Python" scheme="https://lucas-hao.github.io/hexo_zh/tags/Python/"/>
     
     <category term="Pytorch" scheme="https://lucas-hao.github.io/hexo_zh/tags/Pytorch/"/>
+    
+    <category term="CV" scheme="https://lucas-hao.github.io/hexo_zh/tags/CV/"/>
     
   </entry>
   
@@ -346,9 +346,9 @@
     <category term="Bug" scheme="https://lucas-hao.github.io/hexo_zh/categories/Bug/"/>
     
     
-    <category term="Bug" scheme="https://lucas-hao.github.io/hexo_zh/tags/Bug/"/>
-    
     <category term="C++" scheme="https://lucas-hao.github.io/hexo_zh/tags/C/"/>
+    
+    <category term="Bug" scheme="https://lucas-hao.github.io/hexo_zh/tags/Bug/"/>
     
   </entry>
   
