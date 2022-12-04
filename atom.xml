@@ -6,7 +6,7 @@
   <link href="https://lucas-hao.github.io/hexo_zh/atom.xml" rel="self"/>
   
   <link href="https://lucas-hao.github.io/hexo_zh/"/>
-  <updated>2022-10-07T10:44:37.087Z</updated>
+  <updated>2022-12-04T16:55:36.369Z</updated>
   <id>https://lucas-hao.github.io/hexo_zh/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://lucas-hao.github.io/hexo_zh/2022/10/05/gamegraphics/tu-xing-xue-ru-men-bi-ji-3-path-tracing/"/>
     <id>https://lucas-hao.github.io/hexo_zh/2022/10/05/gamegraphics/tu-xing-xue-ru-men-bi-ji-3-path-tracing/</id>
     <published>2022-10-05T11:57:26.000Z</published>
-    <updated>2022-10-07T10:44:37.087Z</updated>
+    <updated>2022-12-04T16:55:36.369Z</updated>
     
     
     <summary type="html">&lt;p&gt;Path tracing笔记以及Games101作业7代码相关解读以及实现。笔记包括&lt;/p&gt;
@@ -35,7 +35,7 @@
     
     
     
-    <category term="图形学" scheme="https://lucas-hao.github.io/hexo_zh/categories/%E5%9B%BE%E5%BD%A2%E5%AD%A6/"/>
+    <category term="GameGraphics" scheme="https://lucas-hao.github.io/hexo_zh/categories/GameGraphics/"/>
     
     
     <category term="C++" scheme="https://lucas-hao.github.io/hexo_zh/tags/C/"/>
@@ -49,7 +49,7 @@
     <link href="https://lucas-hao.github.io/hexo_zh/2022/09/30/gamegraphics/ue5-feng-ge-hua-xuan-ran/"/>
     <id>https://lucas-hao.github.io/hexo_zh/2022/09/30/gamegraphics/ue5-feng-ge-hua-xuan-ran/</id>
     <published>2022-09-30T09:30:41.000Z</published>
-    <updated>2022-09-30T09:55:11.397Z</updated>
+    <updated>2022-12-04T16:55:36.369Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;ue5-风格化渲染&quot;&gt;UE5 风格化渲染&lt;/h1&gt;
@@ -62,7 +62,7 @@
     
     
     
-    <category term="Unreal Engine" scheme="https://lucas-hao.github.io/hexo_zh/categories/Unreal-Engine/"/>
+    <category term="GameGraphics" scheme="https://lucas-hao.github.io/hexo_zh/categories/GameGraphics/"/>
     
     
     <category term="Unreal Engine" scheme="https://lucas-hao.github.io/hexo_zh/tags/Unreal-Engine/"/>
@@ -76,7 +76,7 @@
     <link href="https://lucas-hao.github.io/hexo_zh/2022/09/30/other/latex-notes/"/>
     <id>https://lucas-hao.github.io/hexo_zh/2022/09/30/other/latex-notes/</id>
     <published>2022-09-30T09:10:03.000Z</published>
-    <updated>2022-11-25T18:17:43.054Z</updated>
+    <updated>2022-12-04T16:55:36.369Z</updated>
     
     
     <summary type="html">&lt;p&gt;本篇笔记用来记录在使用LaTeX过程中经常碰到的LaTeX数学符号以及一些基础的常用的操作比如添加图片，添加代码，如果有的话还会收藏一些比较实用的模板比如CV模板，作业模板论文模板等等。持续更新……&lt;/p&gt;
@@ -84,7 +84,7 @@
     
     
     
-    <category term="Math" scheme="https://lucas-hao.github.io/hexo_zh/categories/Math/"/>
+    <category term="Other" scheme="https://lucas-hao.github.io/hexo_zh/categories/Other/"/>
     
     
     <category term="Math" scheme="https://lucas-hao.github.io/hexo_zh/tags/Math/"/>
@@ -98,7 +98,7 @@
     <link href="https://lucas-hao.github.io/hexo_zh/2022/09/28/algorithms/suan-fa-minimum-spanning-tree/"/>
     <id>https://lucas-hao.github.io/hexo_zh/2022/09/28/algorithms/suan-fa-minimum-spanning-tree/</id>
     <published>2022-09-28T05:12:17.000Z</published>
-    <updated>2022-09-30T09:11:23.887Z</updated>
+    <updated>2022-12-04T16:55:36.368Z</updated>
     
     
     <summary type="html">&lt;p&gt;生成树指的是一个连通图G的覆盖所有顶点的无环子图，最小生成树指的是所有支撑树中加权和最小的生成树。&lt;/p&gt;
@@ -111,7 +111,7 @@
     
     
     
-    <category term="数据结构与算法" scheme="https://lucas-hao.github.io/hexo_zh/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
+    <category term="Algorithms" scheme="https://lucas-hao.github.io/hexo_zh/categories/Algorithms/"/>
     
     
     <category term="算法" scheme="https://lucas-hao.github.io/hexo_zh/tags/%E7%AE%97%E6%B3%95/"/>
@@ -152,7 +152,7 @@
     <link href="https://lucas-hao.github.io/hexo_zh/2022/08/10/gamegraphics/ue-jiao-ben-fang-an-unlua-ru-men/"/>
     <id>https://lucas-hao.github.io/hexo_zh/2022/08/10/gamegraphics/ue-jiao-ben-fang-an-unlua-ru-men/</id>
     <published>2022-08-10T12:44:22.000Z</published>
-    <updated>2022-09-11T04:31:44.555Z</updated>
+    <updated>2022-12-04T16:55:36.369Z</updated>
     
     
     <summary type="html">&lt;p&gt;在实际的游戏开发中，由于C++编译需要比较长的时间，蓝图使用连线的方式也会产生一些问题，比如说蓝图节点太多比较混乱，对于习惯写代码的程序员们并不是特别友好，并且蓝图以及C++都需要进行编译，在实际游戏开发过程中还会有热更新的需求，这个时候脚本语言的优势就体现出来了。Lua是游戏开发中一个非常重要的脚本语言，其中UnLua是腾讯开源的为UE提供脚本支持的框架，已经在很多项目中使用。本篇主要是记录一下UnLua的使用过程中所遇到的问题，作为一篇学习笔记。UnLua入门的教程可以参考 &lt;a href=&quot;https://github.com/Tencent/UnLua&quot;&gt;Tencent/UnLua: A feature-rich, easy-learning and highly optimized Lua scripting plugin for UE. (github.com)&lt;/a&gt;中的文档进行学习。&lt;/p&gt;
@@ -160,7 +160,7 @@
     
     
     
-    <category term="Unreal Engine" scheme="https://lucas-hao.github.io/hexo_zh/categories/Unreal-Engine/"/>
+    <category term="GameGraphics" scheme="https://lucas-hao.github.io/hexo_zh/categories/GameGraphics/"/>
     
     
     <category term="Unreal Engine" scheme="https://lucas-hao.github.io/hexo_zh/tags/Unreal-Engine/"/>
@@ -176,7 +176,7 @@
     <link href="https://lucas-hao.github.io/hexo_zh/2022/07/27/gamegraphics/uelogsystem/"/>
     <id>https://lucas-hao.github.io/hexo_zh/2022/07/27/gamegraphics/uelogsystem/</id>
     <published>2022-07-27T15:28:35.000Z</published>
-    <updated>2022-08-10T12:46:33.667Z</updated>
+    <updated>2022-12-04T16:55:36.369Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;日志系统&quot;&gt;日志系统&lt;/h2&gt;
@@ -186,7 +186,7 @@
     
     
     
-    <category term="Unreal Engine" scheme="https://lucas-hao.github.io/hexo_zh/categories/Unreal-Engine/"/>
+    <category term="GameGraphics" scheme="https://lucas-hao.github.io/hexo_zh/categories/GameGraphics/"/>
     
     
     <category term="Unreal Engine" scheme="https://lucas-hao.github.io/hexo_zh/tags/Unreal-Engine/"/>
@@ -200,7 +200,7 @@
     <link href="https://lucas-hao.github.io/hexo_zh/2022/07/21/gamegraphics/unreal-engine-xue-xi-zi-liao-shou-cang/"/>
     <id>https://lucas-hao.github.io/hexo_zh/2022/07/21/gamegraphics/unreal-engine-xue-xi-zi-liao-shou-cang/</id>
     <published>2022-07-21T14:54:21.000Z</published>
-    <updated>2022-08-24T13:02:25.669Z</updated>
+    <updated>2022-12-04T16:55:36.369Z</updated>
     
     
     <summary type="html">&lt;p&gt;用于记录Unreal Engine的学习路线以及资料收藏，持续更新，每学习一部分记录一下，作为学习游戏开发以及图形学的路线经历。&lt;/p&gt;
@@ -210,7 +210,7 @@
     
     
     
-    <category term="Unreal Engine" scheme="https://lucas-hao.github.io/hexo_zh/categories/Unreal-Engine/"/>
+    <category term="GameGraphics" scheme="https://lucas-hao.github.io/hexo_zh/categories/GameGraphics/"/>
     
     
     <category term="Unreal Engine" scheme="https://lucas-hao.github.io/hexo_zh/tags/Unreal-Engine/"/>
@@ -224,14 +224,14 @@
     <link href="https://lucas-hao.github.io/hexo_zh/2022/07/10/computervision/tu-xiang-chu-li-yan-se-ju-chi/"/>
     <id>https://lucas-hao.github.io/hexo_zh/2022/07/10/computervision/tu-xiang-chu-li-yan-se-ju-chi/</id>
     <published>2022-07-10T13:13:13.000Z</published>
-    <updated>2022-09-10T03:24:17.036Z</updated>
+    <updated>2022-12-04T16:55:36.369Z</updated>
     
     
     <summary type="html">&lt;p&gt;颜色距离是衡量颜色与颜色之间相似程度的一个概念。颜色距离越近代表了两个颜色越接近，最简单的一种表示就是两个颜色在RGB颜色空间中的欧式距离，但是由于人眼感知的问题，衍生出了RGB以外的一些计算颜色距离的方式。</summary>
     
     
     
-    <category term="图像处理" scheme="https://lucas-hao.github.io/hexo_zh/categories/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
+    <category term="ComputerVision" scheme="https://lucas-hao.github.io/hexo_zh/categories/ComputerVision/"/>
     
     
     <category term="CV" scheme="https://lucas-hao.github.io/hexo_zh/tags/CV/"/>
@@ -247,14 +247,14 @@
     <link href="https://lucas-hao.github.io/hexo_zh/2022/07/10/computervision/tu-pian-xia-cai-yang-duo-chong-fang-fa-zong-jie/"/>
     <id>https://lucas-hao.github.io/hexo_zh/2022/07/10/computervision/tu-pian-xia-cai-yang-duo-chong-fang-fa-zong-jie/</id>
     <published>2022-07-10T03:55:49.000Z</published>
-    <updated>2022-09-09T02:39:06.217Z</updated>
+    <updated>2022-12-04T16:55:36.369Z</updated>
     
     
     <summary type="html">&lt;p&gt;图片的上采样和下采样分别对应图片的放大和缩小，在对图像进行采样的过程中会造成不同程度的模糊。图像的像素画生成采用的方法就是图片下采用的方法。本文会对图像像素化的方法进行总结。&lt;/p&gt;</summary>
     
     
     
-    <category term="CV" scheme="https://lucas-hao.github.io/hexo_zh/categories/CV/"/>
+    <category term="ComputerVision" scheme="https://lucas-hao.github.io/hexo_zh/categories/ComputerVision/"/>
     
     
     <category term="CV" scheme="https://lucas-hao.github.io/hexo_zh/tags/CV/"/>
@@ -270,14 +270,14 @@
     <link href="https://lucas-hao.github.io/hexo_zh/2022/06/27/gamegraphics/shi-yong-rider-he-emmylua-jin-xing-unlua-pei-zhi/"/>
     <id>https://lucas-hao.github.io/hexo_zh/2022/06/27/gamegraphics/shi-yong-rider-he-emmylua-jin-xing-unlua-pei-zhi/</id>
     <published>2022-06-27T15:15:29.000Z</published>
-    <updated>2022-07-21T14:55:13.006Z</updated>
+    <updated>2022-12-04T16:55:36.369Z</updated>
     
     
     <summary type="html">&lt;p&gt;在Rider中配置UnLua环境就可以使用同一个IDE同时进行c++和Lua的开发，不用切换vscode和Visual Studio，并且Rider更加美观，操作逻辑和代码提示也比Visual Studio加番茄插件更加好用。所以还是非常推荐使用Rider进行UE的开发的。&lt;/p&gt;</summary>
     
     
     
-    <category term="Unreal Engine" scheme="https://lucas-hao.github.io/hexo_zh/categories/Unreal-Engine/"/>
+    <category term="GameGraphics" scheme="https://lucas-hao.github.io/hexo_zh/categories/GameGraphics/"/>
     
     
     <category term="Unreal Engine" scheme="https://lucas-hao.github.io/hexo_zh/tags/Unreal-Engine/"/>
@@ -291,14 +291,14 @@
     <link href="https://lucas-hao.github.io/hexo_zh/2022/03/01/computervision/pytorch-ji-suan-liang-zu-san-wei-zuo-biao-liang-liang-zhi-jian-de-ju-chi/"/>
     <id>https://lucas-hao.github.io/hexo_zh/2022/03/01/computervision/pytorch-ji-suan-liang-zu-san-wei-zuo-biao-liang-liang-zhi-jian-de-ju-chi/</id>
     <published>2022-02-28T16:37:57.000Z</published>
-    <updated>2022-06-30T14:51:03.883Z</updated>
+    <updated>2022-12-04T16:55:36.369Z</updated>
     
     
     <summary type="html">&lt;p&gt;最近需要实现一项功能，就是给定两组三维点云坐标，对两组点的距离进行两两计算，并找出在一定阈值内的点的组合。如果使用暴力运算，时间复杂度就是O(N^2)，显然速度太慢了，所以我们尝试直接使用torch进行计算，大大提高速度。&lt;/p&gt;</summary>
     
     
     
-    <category term="Pytorch" scheme="https://lucas-hao.github.io/hexo_zh/categories/Pytorch/"/>
+    <category term="ComputerVision" scheme="https://lucas-hao.github.io/hexo_zh/categories/ComputerVision/"/>
     
     
     <category term="CV" scheme="https://lucas-hao.github.io/hexo_zh/tags/CV/"/>
@@ -314,14 +314,14 @@
     <link href="https://lucas-hao.github.io/hexo_zh/2022/02/28/gamegraphics/tu-xing-xue-ru-men-bi-ji-2-basic-ray-tracing-games101-zuo-ye-5/"/>
     <id>https://lucas-hao.github.io/hexo_zh/2022/02/28/gamegraphics/tu-xing-xue-ru-men-bi-ji-2-basic-ray-tracing-games101-zuo-ye-5/</id>
     <published>2022-02-27T18:15:17.000Z</published>
-    <updated>2022-10-07T07:26:21.689Z</updated>
+    <updated>2022-12-04T16:55:36.369Z</updated>
     
     
     <summary type="html">&lt;p&gt;Games101作业5实现笔记以及Witted Style Ray Tracing和Moller Trumbore Algorithm笔记&lt;/p&gt;</summary>
     
     
     
-    <category term="图形学" scheme="https://lucas-hao.github.io/hexo_zh/categories/%E5%9B%BE%E5%BD%A2%E5%AD%A6/"/>
+    <category term="GameGraphics" scheme="https://lucas-hao.github.io/hexo_zh/categories/GameGraphics/"/>
     
     
     <category term="C++" scheme="https://lucas-hao.github.io/hexo_zh/tags/C/"/>
@@ -357,14 +357,14 @@
     <link href="https://lucas-hao.github.io/hexo_zh/2022/02/10/gamegraphics/three-js-shi-yong-bei-sai-er-qu-xian-hui-zhi-xin-xing/"/>
     <id>https://lucas-hao.github.io/hexo_zh/2022/02/10/gamegraphics/three-js-shi-yong-bei-sai-er-qu-xian-hui-zhi-xin-xing/</id>
     <published>2022-02-10T02:38:45.000Z</published>
-    <updated>2022-07-10T16:37:20.303Z</updated>
+    <updated>2022-12-04T16:55:36.368Z</updated>
     
     
     <summary type="html">&lt;p&gt;贝塞尔曲线是图形学中非常重要的知识，是绘制曲线以及曲面的基础，在很多地方都有着非常广泛的应用，比如Photoshop里的钢笔工具，字体设计，各种过渡动画等等。本文将记录贝塞尔曲线的原理公式，以及使用Three.js中的贝塞尔曲线API进行简单的心形绘制。&lt;/p&gt;</summary>
     
     
     
-    <category term="前端" scheme="https://lucas-hao.github.io/hexo_zh/categories/%E5%89%8D%E7%AB%AF/"/>
+    <category term="GameGraphics" scheme="https://lucas-hao.github.io/hexo_zh/categories/GameGraphics/"/>
     
     
     <category term="图形学" scheme="https://lucas-hao.github.io/hexo_zh/tags/%E5%9B%BE%E5%BD%A2%E5%AD%A6/"/>
@@ -402,7 +402,7 @@
     <link href="https://lucas-hao.github.io/hexo_zh/2021/11/06/algorithms/suan-fa-shu-zu-zhong-de-ni-xu-dui/"/>
     <id>https://lucas-hao.github.io/hexo_zh/2021/11/06/algorithms/suan-fa-shu-zu-zhong-de-ni-xu-dui/</id>
     <published>2021-11-06T05:50:11.000Z</published>
-    <updated>2022-06-12T09:18:54.878Z</updated>
+    <updated>2022-12-04T16:55:36.368Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;题目描述&quot;&gt;题目描述&lt;/h2&gt;
@@ -415,7 +415,7 @@
     
     
     
-    <category term="数据结构与算法" scheme="https://lucas-hao.github.io/hexo_zh/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
+    <category term="Algorithms" scheme="https://lucas-hao.github.io/hexo_zh/categories/Algorithms/"/>
     
     
     <category term="算法" scheme="https://lucas-hao.github.io/hexo_zh/tags/%E7%AE%97%E6%B3%95/"/>
@@ -431,14 +431,14 @@
     <link href="https://lucas-hao.github.io/hexo_zh/2021/10/30/gamegraphics/tu-xing-xue-ru-men-bi-ji-1-tu-xing-xue-zhong-de-shu-xue/"/>
     <id>https://lucas-hao.github.io/hexo_zh/2021/10/30/gamegraphics/tu-xing-xue-ru-men-bi-ji-1-tu-xing-xue-zhong-de-shu-xue/</id>
     <published>2021-10-30T15:39:17.000Z</published>
-    <updated>2022-09-12T02:02:05.557Z</updated>
+    <updated>2022-12-04T16:55:36.369Z</updated>
     
     
     <summary type="html">&lt;p&gt;数学在图形学中是非常重要的基础，本篇简要记录一下图形学之中的一些数学基础和技巧&lt;/p&gt;</summary>
     
     
     
-    <category term="图形学" scheme="https://lucas-hao.github.io/hexo_zh/categories/%E5%9B%BE%E5%BD%A2%E5%AD%A6/"/>
+    <category term="GameGraphics" scheme="https://lucas-hao.github.io/hexo_zh/categories/GameGraphics/"/>
     
     
     <category term="Math" scheme="https://lucas-hao.github.io/hexo_zh/tags/Math/"/>
@@ -452,7 +452,7 @@
     <link href="https://lucas-hao.github.io/hexo_zh/2021/10/21/algorithms/suan-fa-shu-zu-zhong-di-k-da-de-shu/"/>
     <id>https://lucas-hao.github.io/hexo_zh/2021/10/21/algorithms/suan-fa-shu-zu-zhong-di-k-da-de-shu/</id>
     <published>2021-10-20T16:30:10.000Z</published>
-    <updated>2021-11-06T06:04:42.000Z</updated>
+    <updated>2022-12-04T16:55:36.368Z</updated>
     
     
     <summary type="html">&lt;h2 id=&quot;题目描述&quot;&gt;题目描述&lt;/h2&gt;
@@ -466,7 +466,7 @@
     
     
     
-    <category term="数据结构与算法" scheme="https://lucas-hao.github.io/hexo_zh/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
+    <category term="Algorithms" scheme="https://lucas-hao.github.io/hexo_zh/categories/Algorithms/"/>
     
     
     <category term="算法" scheme="https://lucas-hao.github.io/hexo_zh/tags/%E7%AE%97%E6%B3%95/"/>
@@ -482,7 +482,7 @@
     <link href="https://lucas-hao.github.io/hexo_zh/2021/09/27/other/mian-shi-jane-street-dian-mian/"/>
     <id>https://lucas-hao.github.io/hexo_zh/2021/09/27/other/mian-shi-jane-street-dian-mian/</id>
     <published>2021-09-27T06:31:42.000Z</published>
-    <updated>2022-07-27T15:28:58.258Z</updated>
+    <updated>2022-12-04T16:55:36.373Z</updated>
     
     
     <summary type="html">&lt;p&gt;今天刚面了Jane Street (HK) 的电面，再次感慨自己也太菜了，不过也权当积累经验了orz&lt;/p&gt;
@@ -490,7 +490,7 @@
     
     
     
-    <category term="面试" scheme="https://lucas-hao.github.io/hexo_zh/categories/%E9%9D%A2%E8%AF%95/"/>
+    <category term="Other" scheme="https://lucas-hao.github.io/hexo_zh/categories/Other/"/>
     
     
     <category term="面试" scheme="https://lucas-hao.github.io/hexo_zh/tags/%E9%9D%A2%E8%AF%95/"/>
