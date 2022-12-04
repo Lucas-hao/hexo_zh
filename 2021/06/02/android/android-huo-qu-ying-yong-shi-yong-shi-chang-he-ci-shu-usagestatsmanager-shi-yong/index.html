@@ -95,7 +95,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/hexo_zh/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/hexo_zh/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/hexo_zh/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">45</span></a></li><li class="menu-item menu-item-categories"><a href="/hexo_zh/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">16</span></a></li><li class="menu-item menu-item-portfolio"><a href="/hexo_zh/portfolio/" rel="section"><i class="fa fa-archive fa-fw"></i>作品集</a></li><li class="menu-item menu-item-engligh"><a href="https://lucas-hao.github.io/hexo_en/" rel="section"><i class="fa fa-language fa-fw"></i>Engligh</a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/hexo_zh/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/hexo_zh/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/hexo_zh/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">45</span></a></li><li class="menu-item menu-item-categories"><a href="/hexo_zh/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">19</span></a></li><li class="menu-item menu-item-portfolio"><a href="/hexo_zh/portfolio/" rel="section"><i class="fa fa-archive fa-fw"></i>作品集</a></li><li class="menu-item menu-item-engligh"><a href="https://lucas-hao.github.io/hexo_en/" rel="section"><i class="fa fa-language fa-fw"></i>Engligh</a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
         </a>
@@ -173,7 +173,7 @@
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/hexo_zh/categories/">
-        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-count">19</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -285,6 +285,21 @@
       <span class="post-meta-item-text">阅读次数：</span>
       <span id="busuanzi_value_page_pv"></span>
     </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>3.7k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>3 分钟</span>
+    </span>
 </div>
 
         </div>
@@ -300,10 +315,10 @@
 <p>想要使用这个类来获取应用使用信息，首先需要对app进行授权，我们需要在AndroidManifest.xml文件中加入<code>uses-permission</code></p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">uses-permission</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:name</span>=<span class="string">&quot;android.permission.PACKAGE_USAGE_STATS&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">tools:ignore</span>=<span class="string">&quot;ProtectedPermissions&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
 <p>然后需要我们在设置-安全-更多安全设置-使用情况访问权限中给对应的app打开使用权限（华为p30 pro）。我们在代码中也可以进行判断，主动要求用户打开该设置。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 首先判断获取到的list是否为空 if (packageInfoList == null)</span></span><br><span class="line"><span class="keyword">if</span> (Build.VERSION.SDK_INT &gt; Build.VERSION_CODES.LOLLIPOP) &#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        startActivity(<span class="keyword">new</span> Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS));</span><br><span class="line">    &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">        Toast.makeText(MainActivity.<span class="keyword">this</span>,<span class="string">&quot;无法开启允许查看使用情况的应用界面&quot;</span>,Toast.LENGTH_LONG).show();</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 首先判断获取到的list是否为空 if (packageInfoList == null)</span></span><br><span class="line"><span class="keyword">if</span> (Build.VERSION.SDK_INT &gt; Build.VERSION_CODES.LOLLIPOP) &#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        startActivity(<span class="keyword">new</span> <span class="title class_">Intent</span>(Settings.ACTION_USAGE_ACCESS_SETTINGS));</span><br><span class="line">    &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">        Toast.makeText(MainActivity.<span class="built_in">this</span>,<span class="string">&quot;无法开启允许查看使用情况的应用界面&quot;</span>,Toast.LENGTH_LONG).show();</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h4 id="对象初始化">对象初始化</h4>
 <p>初始化<code>UsageStatsManager</code>类我们需要以下代码</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">UsageStatsManager usm = (UsageStatsManager)getSystemService(Context.USAGE_STATS_SERVICE);</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">UsageStatsManager</span> <span class="variable">usm</span> <span class="operator">=</span> (UsageStatsManager)getSystemService(Context.USAGE_STATS_SERVICE);</span><br></pre></td></tr></table></figure>
 <h4 id="获取usagestats">获取UsageStats</h4>
 <p><code>UsageStatsManager</code>提供了一些方法让我们获取应用的<code>UsageStats</code>，比如<code>Map&lt;String, UsageStats&gt; queryAndAggregateUsageStats(long beginTime, long endTime)</code>和<code>List&lt;EventsStats&gt; queryEventStats(int intervalType, long beginTime, long endTime)</code>，通过传入开始时间，结束时间和一个间隔类型(intervalType)来获取在一定时间范围内的<code>UsageStats</code>列表。其中，Android给了以下几种intervalType</p>
 <table>
@@ -348,10 +363,10 @@
 <h4 id="获取应用名应用包名使用时长">获取应用名，应用包名，使用时长</h4>
 <p>我们可以通过<code>UsageStats.getPackageName()</code>这个方法来获取应用的包名，通过<code>UsageStats.getTotalTimeInForeground()</code>这个方法获取应用在前台的使用时间。</p>
 <p>获取应用的名字我们需要用到<code>PackageManger</code>中的<code>getApplcationLabel(ApplicationInfo info)</code>这个方法，获取<code>ApplicationInfo</code>可以使用<code>getApplicationInfo(String packageName, int flags)</code>这个方法，代码如下</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">getApplicationNameByPackageName</span><span class="params">(Context context, String packageName)</span> </span>&#123;</span><br><span class="line">    PackageManager pm = context.getPackageManager();</span><br><span class="line">    String Name;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        Name = pm.getApplicationLabel(pm.getApplicationInfo(packageName, PackageManager.GET_META_DATA)).toString();</span><br><span class="line">    &#125; <span class="keyword">catch</span> (PackageManager.NameNotFoundException e) &#123;</span><br><span class="line">        Name = <span class="string">&quot;&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> Name;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> String <span class="title function_">getApplicationNameByPackageName</span><span class="params">(Context context, String packageName)</span> &#123;</span><br><span class="line">    <span class="type">PackageManager</span> <span class="variable">pm</span> <span class="operator">=</span> context.getPackageManager();</span><br><span class="line">    String Name;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        Name = pm.getApplicationLabel(pm.getApplicationInfo(packageName, PackageManager.GET_META_DATA)).toString();</span><br><span class="line">    &#125; <span class="keyword">catch</span> (PackageManager.NameNotFoundException e) &#123;</span><br><span class="line">        Name = <span class="string">&quot;&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> Name;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h4 id="获取应用使用次数">获取应用使用次数</h4>
 <p>至于应用使用次数，通过查询发现<code>UsageStats</code>中有<code>mLauchCount</code>这个变量，但是Android没有提供对应的get方法，所以我们就需要用反射来获取使用次数 [3]。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 利用反射，获取UsageStats中统计的应用使用次数</span></span><br><span class="line"><span class="meta">@RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">getLaunchCount</span><span class="params">(UsageStats usageStats)</span> <span class="keyword">throws</span> IllegalAccessException </span>&#123;</span><br><span class="line">    Field field = <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        field = usageStats.getClass().getDeclaredField(<span class="string">&quot;mLaunchCount&quot;</span>);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (NoSuchFieldException e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">        Log.e(TAG, <span class="string">&quot;getLaunchCount: NoSuchFieldException&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    Log.i(TAG, <span class="string">&quot;getLaunchCount: &quot;</span> + <span class="string">&quot;Package Name: &quot;</span> + usageStats.getPackageName() +</span><br><span class="line">          <span class="string">&quot;\t&quot;</span> + (<span class="keyword">int</span>) field.get(usageStats));</span><br><span class="line">    <span class="keyword">return</span> (<span class="keyword">int</span>) field.get(usageStats);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 利用反射，获取UsageStats中统计的应用使用次数</span></span><br><span class="line"><span class="meta">@RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)</span></span><br><span class="line"><span class="keyword">private</span> <span class="type">int</span> <span class="title function_">getLaunchCount</span><span class="params">(UsageStats usageStats)</span> <span class="keyword">throws</span> IllegalAccessException &#123;</span><br><span class="line">    <span class="type">Field</span> <span class="variable">field</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        field = usageStats.getClass().getDeclaredField(<span class="string">&quot;mLaunchCount&quot;</span>);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (NoSuchFieldException e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">        Log.e(TAG, <span class="string">&quot;getLaunchCount: NoSuchFieldException&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    Log.i(TAG, <span class="string">&quot;getLaunchCount: &quot;</span> + <span class="string">&quot;Package Name: &quot;</span> + usageStats.getPackageName() +</span><br><span class="line">          <span class="string">&quot;\t&quot;</span> + (<span class="type">int</span>) field.get(usageStats));</span><br><span class="line">    <span class="keyword">return</span> (<span class="type">int</span>) field.get(usageStats);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>但是实际使用下来的情况发现，得到的数据可能为0，原因不知道为什么，所以还可以通过一种较为复杂的方法进行实现。通过<code>UsageStatsManager.queryEvents(long beginTime, long endTime)</code>获取Android提供的另一个类<code>UsageEvents</code>，遍历可以获取到所有的events，通过<code>getEventType()</code>方法可以得到对应的event type，其中<code>ACTIVITY_PAUSED</code>和<code>ACTIVITY_RESUMED</code>分别代表了活动移动到了后台和移动到前台，可以通过这两个活动的次数来计算出应用使用次数。详细代码可以参考[3] <a target="_blank" rel="noopener" href="https://blog.csdn.net/github_37271067/article/details/85292543">android统计手机应用使用时长以及开启次数_github_37271067的博客-CSDN博客</a>。</p>
 <h4 id="参考资料">参考资料</h4>
 <p>[1] <a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=MzI0NDYzMzg0OQ==&amp;mid=2247483683&amp;idx=1&amp;sn=1cceed0d62a5fbfcc373d5ec45370ed9&amp;chksm=e95b98b5de2c11a37c180d231633245e94c9ede239dbdfcca769afe09f1461e6d995c81241ec#rd作者：唐码农链接：https://www.jianshu.com/p/f88b6a9f7462来源：简书著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。">Android 5.0以上通过UsageStatsManager类 获取应用使用情况（精品） (qq.com)</a></p>
@@ -408,6 +423,22 @@
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Lucas Hao</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">175k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">2:39</span>
+  </span>
 </div>
 <div class="busuanzi-count">
     <span class="post-meta-item" id="busuanzi_container_site_uv">
