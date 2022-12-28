@@ -141,9 +141,9 @@
     
     <category term="Python" scheme="https://lucas-hao.github.io/tags/Python/"/>
     
-    <category term="PyTorch" scheme="https://lucas-hao.github.io/tags/PyTorch/"/>
-    
     <category term="CV" scheme="https://lucas-hao.github.io/tags/CV/"/>
+    
+    <category term="PyTorch" scheme="https://lucas-hao.github.io/tags/PyTorch/"/>
     
   </entry>
   
@@ -303,9 +303,9 @@
     
     <category term="Python" scheme="https://lucas-hao.github.io/tags/Python/"/>
     
-    <category term="CV" scheme="https://lucas-hao.github.io/tags/CV/"/>
-    
     <category term="Pytorch" scheme="https://lucas-hao.github.io/tags/Pytorch/"/>
+    
+    <category term="CV" scheme="https://lucas-hao.github.io/tags/CV/"/>
     
   </entry>
   
@@ -420,9 +420,9 @@
     
     <category term="算法" scheme="https://lucas-hao.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
-    <category term="Java" scheme="https://lucas-hao.github.io/tags/Java/"/>
-    
     <category term="LeetCode" scheme="https://lucas-hao.github.io/tags/LeetCode/"/>
+    
+    <category term="Java" scheme="https://lucas-hao.github.io/tags/Java/"/>
     
   </entry>
   
@@ -471,9 +471,9 @@
     
     <category term="算法" scheme="https://lucas-hao.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
-    <category term="Java" scheme="https://lucas-hao.github.io/tags/Java/"/>
-    
     <category term="LeetCode" scheme="https://lucas-hao.github.io/tags/LeetCode/"/>
+    
+    <category term="Java" scheme="https://lucas-hao.github.io/tags/Java/"/>
     
   </entry>
   
